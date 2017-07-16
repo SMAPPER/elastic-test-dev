@@ -1,0 +1,18 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "X.509 - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"type:bro_x509\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "host", 
+    "certificate_subject", 
+    "_id"
+  ]
+}

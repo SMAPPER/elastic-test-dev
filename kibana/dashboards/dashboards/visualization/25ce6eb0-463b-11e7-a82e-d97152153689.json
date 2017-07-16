@@ -1,0 +1,10 @@
+{
+  "visState": "{\"title\":\"Connections - Map\",\"type\":\"markdown\",\"params\":{\"markdown\":\"[Source - Originator Bytes](/app/kibana#/dashboard/68f738e0-46ca-11e7-946f-1bfb1be7c36b) | [Destination - Responder Bytes](/app/kibana#/dashboard/b65775e0-46cb-11e7-946f-1bfb1be7c36b)   \\n[Source - Sum of Total Bytes](/app/kibana#/dashboard/f042ad60-46c6-11e7-946f-1bfb1be7c36b) | [Destination - Sum of Total Bytes](/app/kibana#/dashboard/ccfcc540-4638-11e7-a82e-d97152153689)   \\n[Source - Top Connection Duration](/app/kibana#/dashboard/4e108070-46c7-11e7-946f-1bfb1be7c36b) | [Destination - Top Connection Duration](/app/kibana#/dashboard/ea211360-46c4-11e7-a82e-d97152153689)\"},\"aggs\":[],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Connections - Map", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\"}},\"filter\":[]}"
+  }
+}

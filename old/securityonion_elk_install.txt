@@ -1,0 +1,248 @@
+# Security Onion with ELK
+#
+# This guide will install ELK and configure syslog-ng to send logs to ELK.
+#
+# This guide assumes that you're running the latest Security Onion 14.04.5.2 ISO image
+# and that you've run through Setup, choosing Evaluation Mode to enable ELSA.
+#
+# WARNINGS AND DISCLAIMERS
+# This script and configuration is PRE-ALPHA and UNSUPPORTED!
+# If this script breaks your system, you get to keep both pieces!
+# Do NOT run this on a production system that you care about!
+# Kibana has no authentication by default, so do NOT run this on a system with sensitive data!
+# (We will be adding an authentication proxy in the future.)
+# This script should only be run on a test box with test data!
+# 
+# HARDWARE REQUIREMENTS
+# ELK requires more hardware than ELSA, so for a test VM, you'll probably want at least 4GB of RAM.
+# 
+# THANKS
+# Special thanks to Justin Henderson for his Logstash configs and installation guide!
+# Forked from:
+# https://github.com/SMAPPER/Logstash-Configs/blob/master/securityonion_elk_install.txt
+#
+# CHANGELOG
+#
+# 2017-03-04
+# Replaced Oracle Java with OpenJDK
+# Removed CIF and frequency analysis for now
+# Updated ELK components to latest versions compatible with openjdk-7
+#
+# 2017-03-06
+# Replaced nxlog with our existing syslog-ng
+# Changed openjdk-7-jre to openjdk-7-jre-headless
+# Removed Setup instructions
+# Added note assuming 14.04.5.2 ISO image with Setup run in Evaluation Mode
+#
+# TODO
+# Add authentication proxy for Kibana
+# Add Kibana plugin to pivot to CapMe
+# Add custom visualizations and dashboards
+
+# Install Security Onion
+# If you haven't already, install Security Onion in a test VM using the latest 14.04.5.2 ISO image.
+# Run through Setup, choosing Evaluation Mode which will enable ELSA.
+# This guide will install ELK and then reconfigure syslog-ng to send logs to ELK.
+
+# Install OpenJDK
+sudo apt-get update
+sudo apt-get install openjdk-7-jre-headless
+
+# Make a directory to store downloads
+DIR="/tmp/elk"
+mkdir $DIR
+cd $DIR
+
+# Download ELK packages
+wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.4.4/elasticsearch-2.4.4.deb
+wget https://download.elastic.co/logstash/logstash/packages/debian/logstash-2.4.1_all.deb
+wget https://download.elastic.co/kibana/kibana/kibana-4.6.4-amd64.deb
+wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+
+# Install ELK packages
+sudo dpkg -i /tmp/elk/elasticsearch-*.deb
+sudo dpkg -i /tmp/elk/logstash-*_all.deb
+sudo dpkg -i /tmp/elk/kibana-*-amd64.deb
+
+# Download GeoIP data
+sudo mkdir /usr/local/share/GeoIP
+cd /usr/local/share/GeoIP
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoIPv6.dat.gz
+sudo wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCityv6-beta/GeoLiteCityv6.dat.gz
+sudo wget http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum.dat.gz
+sudo gunzip *.gz
+cd $DIR
+
+# Install plugins
+sudo apt-get -y install python-pip
+sudo pip install elasticsearch-curator
+sudo /usr/share/elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf
+sudo /opt/logstash/bin/logstash-plugin install logstash-filter-translate
+sudo /opt/logstash/bin/logstash-plugin install logstash-filter-tld
+sudo /opt/logstash/bin/logstash-plugin install logstash-filter-elasticsearch
+sudo /opt/logstash/bin/logstash-plugin install logstash-filter-rest
+sudo /opt/kibana/bin/kibana plugin --install elastic/sense
+sudo /opt/kibana/bin/kibana plugin --install prelert_swimlane_vis -u https://github.com/prelert/kibana-swimlane-vis/archive/v0.1.0.tar.gz
+git clone https://github.com/oxalide/kibana_metric_vis_colors.git
+sudo apt-get install zip -y
+zip -r kibana_metric_vis_colors kibana_metric_vis_colors
+sudo /opt/kibana/bin/kibana plugin --install metric-vis-colors -u file://$DIR/kibana_metric_vis_colors.zip
+sudo /opt/kibana/bin/kibana plugin -i kibana-slider-plugin -u https://github.com/raystorm-place/kibana-slider-plugin/releases/download/v0.0.2/kibana-slider-plugin-v0.0.2.tar.gz
+sudo /opt/kibana/bin/kibana plugin --install elastic/timelion
+sudo /opt/kibana/bin/kibana plugin -i kibana-html-plugin -u https://github.com/raystorm-place/kibana-html-plugin/releases/download/v0.0.3/kibana-html-plugin-v0.0.3.tar.gz
+
+# Configure ElasticSearch
+FILE="/etc/elasticsearch/elasticsearch.yml"
+echo "network.host: 127.0.0.1" | sudo tee -a $FILE
+echo "cluster.name: securityonion" | sudo tee -a $FILE
+echo "index.number_of_replicas: 0" | sudo tee -a $FILE
+
+# Install logstash configurations
+# Switch all configs to come from git
+sudo apt-get install git -y
+git clone https://github.com/dougburks/Logstash-Configs.git
+sudo cp -rf Logstash-Configs/configfiles/*.conf /etc/logstash/conf.d/
+sudo cp -rf Logstash-Configs/dictionaries /lib/
+sudo cp -rf Logstash-Configs/grok-patterns /lib/
+
+# Enable ELK
+sudo update-rc.d elasticsearch defaults
+sudo update-rc.d logstash defaults
+sudo update-rc.d kibana defaults
+
+# Start ELK
+sudo service elasticsearch start
+sudo service logstash start
+sudo service kibana start
+
+# Now we need to get logs into ELK, so configure syslog-ng to send logs to ELK
+FILE="/etc/syslog-ng/syslog-ng.conf"
+sudo cp $FILE $FILE.elsa
+sudo sed -i '/^destination d_elsa/a destination d_elk { tcp("127.0.0.1" port(6050) template("$(format-json --scope selected_macros --scope nv_pairs --exclude DATE --key ISODATE)\n")); };' $FILE
+sudo sed -i 's/log { destination(d_elsa); };/log { destination(d_elk); };/' $FILE
+sudo sed -i '/rewrite(r_host);/d' $FILE
+sudo sed -i '/rewrite(r_cisco_program);/d' $FILE
+sudo sed -i '/rewrite(r_snare);/d' $FILE
+sudo sed -i '/rewrite(r_from_pipes);/d' $FILE
+sudo sed -i '/rewrite(r_pipes);/d' $FILE
+sudo sed -i '/parser(p_db);/d' $FILE
+sudo sed -i '/rewrite(r_extracted_host);/d' $FILE
+sudo service syslog-ng restart
+
+# Create some logs
+sudo tcpreplay -ieth1 -M10 /opt/samples/*.pcap /opt/samples/markofu/*.pcap /opt/samples/mta/*.pcap
+
+# Check for logs
+# At this point, you should be able to access Kibana:
+# http://localhost:5601
+# You should see Bro logs and Snort alerts (although the Snort alerts may not be parsed properly right now)
+
+# Switch to Suricata and enable EVE JSON output
+# Stop sensor processes
+sudo nsm_sensor_ps-stop
+
+# Switch from Snort to Suricata
+sudo sed -i 's/ENGINE=snort/ENGINE=suricata/' /etc/nsm/securityonion.conf
+
+# Update rules for Suricata
+sudo rule-update
+
+# BEGIN HUMAN INTERACTION
+# using sudo gedit or sudo vi edit /etc/nsm/[Hostname-eth[interface#]]/suricata.yaml - NOTE: You cannot use a tab in the configuration file
+# Set enabled to yes (This is right under eve-log)
+# [Optional settings for suricata.yaml]
+# Uncomment payload printable 
+# Set xff enabled to yes
+# Set files force-magic and force-md5 to yes
+# Comment line for Bidirectional Flow
+# Uncomment Unidirectional netflow
+# Uncomment smtp extended to yes
+# END HUMAN INTERACTION
+
+# Start sensor processes
+sudo nsm_sensor_ps-start
+
+# TESTING AND TROUBLESHOOTING
+# You should also be able to access Elasticsearch:
+# http://localhost:9200    (add /_plugin/kopf to access kopf)
+# To manually run Logstash (testing and troubleshooting) run:
+/opt/logstash/bin/logstash -f /etc/logstash/conf.d/
+
+# OPTIONAL
+
+# Disabled for now - Update firewall rules
+#sudo iptables -t nat -A PREROUTING -p tcp --dport 514 -j REDIRECT --to-port 1514
+#sudo rm -f /etc/iptables.rules
+#sudo iptables-save | sudo tee -a /etc/iptables.rules
+
+# Disabled for now - Make firewall rules persistent
+#sudo vi /etc/network/interfaces
+
+# MANUAL INTERACTION
+#Add the below line to the management NIC
+#pre-up iptables-restore < /etc/iptables.rules
+
+# Feel free to also look at any other Logstash config files found on https://github.com/SMAPPER/Logstash-Configs 
+# and download them to the /etc/logstash/conf.d directory to make them active
+#sudo cp -rf Logstash-Configs/configfiles-setup_required/8*.conf /etc/logstash/conf.d/
+
+# Frequency analysis - disabled for now
+#sudo mkdir /opt/freq
+#cd /opt/freq
+#sudo wget https://github.com/MarkBaggett/MarkBaggett/raw/master/freq/freq.py
+#sudo wget https://github.com/MarkBaggett/MarkBaggett/raw/master/freq/freq_server.py
+#sudo chmod +x *.py
+#sudo wget https://github.com/MarkBaggett/MarkBaggett/raw/master/freq/english_lowercase.freq
+#sudo wget https://github.com/MarkBaggett/MarkBaggett/raw/master/freq/english_mixedcase.freq
+#sudo wget https://github.com/SMAPPER/Logstash-Configs/raw/master/configfiles-setup_required/freq/dns.freq
+#sudo wget https://github.com/SMAPPER/Logstash-Configs/raw/master/configfiles-setup_required/freq/file.freq
+#sudo wget https://github.com/SMAPPER/Logstash-Configs/raw/master/configfiles-setup_required/freq/uri.freq
+
+# Disabled for now - Finish setting up frequency analysis service
+#sudo cp -rf ~/Logstash-Configs/configfiles-setup_required/freq/freq.sh /opt/freq/
+#sudo chmod +x /opt/freq/freq.sh
+#sudo cp -rf ~/Logstash-Configs/configfiles-setup_required/freq/freq /etc/init.d/
+#sudo chmod +x /etc/init.d/freq
+#sudo update-rc.d freq defaults
+#sudo service freq start
+
+# NOTES
+# If you rerun security onion setup you will need to rerun these ufw commands as well as renable the suricata.yaml settings
+sudo ufw allow 9200/tcp
+sudo ufw allow 5601/tcp
+sudo ufw allow 15672/tcp
+sudo ufw allow 443/tcp
+
+NEED TO DO:
+
+Write script to replay all samples in /opt/samples/
+
+REMOVE PASSWORD LOGGING
+
+
+If on SSD do this:
+
+Replace sda with the name of your hard drive in the commands below
+
+echo noop > /sys/block/sda/queue/scheduler
+
+edit /etc/rc.local and add this command before exit 0 (echo noop > /sys/block/sda/queue/scheduler)
+
+
+Also run this in Sense:
+
+PUT /_cluster/settings
+{
+    "persistent" : {
+        "indices.store.throttle.max_bytes_per_sec" : "100mb"
+    }
+}
+
+PUT /_cluster/settings
+{
+    "transient" : {
+        "indices.store.throttle.type" : "none" 
+    }
+}

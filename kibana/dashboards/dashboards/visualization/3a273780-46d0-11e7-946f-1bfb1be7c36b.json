@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Logstash - Error Type (Pie Chart)\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"tags.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Error Type\"}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Logstash - Error Type (Pie Chart)", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "ef487fd0-46cf-11e7-ba56-317a6969f55c", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - DNP3", 
+  "uiStateJSON": "{\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-8\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-2\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"493cbca0-3581-11e7-98ef-19df58fe538b\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"593f1850-3581-11e7-98ef-19df58fe538b\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":3,\"id\":\"abcf5050-3719-11e7-90f8-87842d5eedc9\",\"panelIndex\":5,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":7,\"id\":\"bf3410e0-3719-11e7-90f8-87842d5eedc9\",\"panelIndex\":6,\"row\":3,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"dde8c8a0-3719-11e7-90f8-87842d5eedc9\",\"panelIndex\":7,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"ef7546c0-3719-11e7-90f8-87842d5eedc9\",\"panelIndex\":8,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":10,\"id\":\"fd736e00-3719-11e7-90f8-87842d5eedc9\",\"panelIndex\":9,\"row\":3,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"c2587840-342d-11e7-9e93-53b62e1857b2\",\"panelIndex\":10,\"row\":11,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

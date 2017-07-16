@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Weird - Type (Pie Chart)\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"name.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Weird - Type (Pie Chart)", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "e32d0d50-342e-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

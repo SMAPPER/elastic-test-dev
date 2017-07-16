@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Modbus - Log Count\",\"type\":\"metric\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"fontSize\":\"30\",\"gauge\":{\"autoExtend\":false,\"backStyle\":\"Full\",\"colorSchema\":\"Green to Red\",\"colorsRange\":[{\"from\":0,\"to\":100}],\"gaugeColorMode\":\"Labels\",\"gaugeStyle\":\"Full\",\"gaugeType\":\"Metric\",\"invertColors\":false,\"labels\":{\"color\":\"black\",\"show\":false},\"orientation\":\"vertical\",\"percentageMode\":false,\"scale\":{\"color\":\"#333\",\"labels\":false,\"show\":false,\"width\":2},\"style\":{\"bgColor\":false,\"bgFill\":\"#E5AC0E\",\"fontSize\":60,\"labelColor\":true,\"subText\":\"\"},\"type\":\"simple\",\"useRange\":false,\"verticalSplit\":false},\"handleNoResults\":true,\"type\":\"gauge\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Modbus - Log Count", 
+  "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"},\"colors\":{\"0 - 100\":\"#E5AC0E\"},\"legendOpen\":false}}", 
+  "version": 1, 
+  "savedSearchId": "52dc9fe0-342e-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

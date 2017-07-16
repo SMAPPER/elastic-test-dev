@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - RADIUS", 
+  "uiStateJSON": "{\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-8\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-9\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":9,\"type\":\"visualization\"},{\"col\":3,\"id\":\"bfded1e0-363f-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"ccb3e270-363f-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":4,\"id\":\"9dfb85d0-3808-11e7-a1cc-ebc6a7e70e84\",\"panelIndex\":5,\"row\":3,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"b48442b0-3808-11e7-a1cc-ebc6a7e70e84\",\"panelIndex\":6,\"row\":6,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"cea78b70-3808-11e7-a1cc-ebc6a7e70e84\",\"panelIndex\":7,\"row\":6,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"10cd7190-3809-11e7-a1cc-ebc6a7e70e84\",\"panelIndex\":8,\"row\":9,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"5df79fe0-3809-11e7-a1cc-ebc6a7e70e84\",\"panelIndex\":9,\"row\":9,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"93a9d690-3bff-11e7-be35-e7fc4052ff75\",\"panelIndex\":10,\"row\":3,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"75545310-342e-11e7-9e93-53b62e1857b2\",\"panelIndex\":11,\"row\":12,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

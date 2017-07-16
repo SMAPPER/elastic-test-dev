@@ -1,0 +1,4 @@
+{
+  "defaultIndex": "logstash-*",
+  "discover:sampleSize":"10"
+}

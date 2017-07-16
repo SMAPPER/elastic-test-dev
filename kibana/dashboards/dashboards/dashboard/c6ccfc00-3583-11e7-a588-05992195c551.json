@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - SSH", 
+  "uiStateJSON": "{\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-8\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-2\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"fb29b1b0-3640-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"09457310-3641-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":10,\"id\":\"42d8d8b0-365f-11e7-8c78-e3086faf385c\",\"panelIndex\":5,\"row\":3,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"71499450-365f-11e7-8c78-e3086faf385c\",\"panelIndex\":6,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"8a60eb50-365f-11e7-8c78-e3086faf385c\",\"panelIndex\":7,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"9a33f9a0-365f-11e7-8c78-e3086faf385c\",\"panelIndex\":8,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":7,\"id\":\"b6756770-365f-11e7-8c78-e3086faf385c\",\"panelIndex\":9,\"row\":3,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"c33e7600-342e-11e7-9e93-53b62e1857b2\",\"panelIndex\":10,\"row\":11,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

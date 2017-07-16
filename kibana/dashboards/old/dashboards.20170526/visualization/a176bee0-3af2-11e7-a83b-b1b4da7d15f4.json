@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"DCE/RPC - Log Count\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":\"30\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "DCE/RPC - Log Count", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "913c5b80-3aab-11e7-8b17-0d8709b02c80", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

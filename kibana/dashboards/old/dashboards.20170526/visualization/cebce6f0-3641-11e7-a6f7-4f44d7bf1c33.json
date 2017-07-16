@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Tunnels - Log Count\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":\"30\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Tunnels - Log Count", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "d26d5510-342e-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

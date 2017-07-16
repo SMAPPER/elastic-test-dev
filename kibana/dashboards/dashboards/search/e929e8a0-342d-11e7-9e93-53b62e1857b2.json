@@ -1,0 +1,21 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "Files - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\n  \"index\": \"logstash-*\",\n  \"highlightAll\": true,\n  \"version\": true,\n  \"filter\": [],\n  \"query\": {\n    \"query_string\": {\n      \"analyze_wildcard\": true,\n      \"query\": \"type:bro_files\"\n    }\n  }\n}"
+  }, 
+  "columns": [
+    "file_ip", 
+    "destination_ip", 
+    "source", 
+    "uid", 
+    "fuid", 
+    "_id"
+  ]
+}

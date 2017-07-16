@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"RDP -Keyboard Layout (Pie Chart)\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"keyboard_layout.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Keyboard Layout\"}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "RDP -Keyboard Layout (Pie Chart)", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "823dd600-342e-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

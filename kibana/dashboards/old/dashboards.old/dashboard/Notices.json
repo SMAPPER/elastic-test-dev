@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Notices", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"Bro-Notices\",\"panelIndex\":2,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Bro-Notices-Chart\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Notice-Source-IP-Addresses\",\"panelIndex\":5,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Notice-Destination-IP-Addresses\",\"panelIndex\":6,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Notice-Destination-Ports\",\"panelIndex\":7,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Notice\",\"type\":\"search\",\"panelIndex\":8,\"size_x\":12,\"size_y\":7,\"col\":1,\"row\":7,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"sort\":[\"@timestamp\",\"desc\"]}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+  }
+}

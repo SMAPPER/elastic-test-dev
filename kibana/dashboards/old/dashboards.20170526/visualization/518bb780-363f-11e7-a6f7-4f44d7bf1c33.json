@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"MySQL - Log Count\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":\"30\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "MySQL - Log Count", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "5d624230-342e-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

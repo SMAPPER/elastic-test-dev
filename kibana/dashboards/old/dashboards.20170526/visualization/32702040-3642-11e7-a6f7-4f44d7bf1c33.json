@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"X.509 - Log Count\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":\"30\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "X.509 - Log Count", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "f5038cc0-342e-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Firewall", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

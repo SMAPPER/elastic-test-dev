@@ -1,0 +1,18 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "OSSEC - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"query\":\"type:ossec\",\"analyze_wildcard\":true}},\"filter\":[]}"
+  }, 
+  "columns": [
+    "alert_level", 
+    "classification", 
+    "description"
+  ]
+}

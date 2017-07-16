@@ -1,0 +1,21 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "HTTP - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\n  \"index\": \"logstash-*\",\n  \"highlightAll\": true,\n  \"version\": true,\n  \"filter\": [],\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"type:bro_http\",\n      \"analyze_wildcard\": true\n    }\n  }\n}"
+  }, 
+  "columns": [
+    "source_ip", 
+    "destination_ip", 
+    "destination_port", 
+    "resp_fuids", 
+    "uid", 
+    "_id"
+  ]
+}

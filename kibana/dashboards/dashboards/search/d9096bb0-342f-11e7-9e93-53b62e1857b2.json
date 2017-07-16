@@ -1,0 +1,18 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "OSSEC - Alerts", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"logstash-*\",\"key\":\"tags\",\"value\":\"alert\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"tags\":{\"query\":\"alert\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"query\":{\"query_string\":{\"query\":\"type:ossec\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "alert_level", 
+    "classification", 
+    "description"
+  ]
+}

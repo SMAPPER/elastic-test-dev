@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Connections - Destination - Sum of Total Bytes", 
+  "uiStateJSON": "{\"P-1\":{\"mapCenter\":[24.846565348219734,0.087890625],\"mapZoom\":2}}", 
+  "panelsJSON": "[{\"col\":3,\"id\":\"1342e630-4632-11e7-9903-85f789353078\",\"panelIndex\":1,\"row\":1,\"size_x\":10,\"size_y\":10,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

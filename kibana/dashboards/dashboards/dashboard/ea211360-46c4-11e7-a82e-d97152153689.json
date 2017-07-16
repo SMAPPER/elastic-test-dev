@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Connections - Destination - Top Connection Duration", 
+  "uiStateJSON": "{\"P-1\":{\"mapCenter\":[39.639537564366684,0.17578125],\"mapZoom\":2}}", 
+  "panelsJSON": "[{\"col\":3,\"id\":\"7f7492d0-46c4-11e7-a82e-d97152153689\",\"panelIndex\":1,\"row\":1,\"size_x\":10,\"size_y\":10,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

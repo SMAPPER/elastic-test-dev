@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "NIDS", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"NIDS-Alerts-(Chart)\",\"panelIndex\":2,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"NIDS-Alerts\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"NIDS-Destination-IP-Adddresses\",\"panelIndex\":5,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"NIDS-Destination-Ports\",\"panelIndex\":6,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"NIDS-Source-IP-Adddresses\",\"panelIndex\":7,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"_id\"],\"id\":\"NIDS\",\"panelIndex\":8,\"row\":7,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+  }
+}

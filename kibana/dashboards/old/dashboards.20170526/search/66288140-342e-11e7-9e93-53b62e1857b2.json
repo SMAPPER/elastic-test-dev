@@ -1,0 +1,18 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "PE - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"type:bro_pe\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "message", 
+    "fuid", 
+    "_id"
+  ]
+}

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+es_host=localhost
+es_port=9200
+kibana_index=.kibana
+kibana_version=$( jq -r '.version' < /opt/kibana/package.json )
+kibana_build=$(jq -r '.build.number' < /opt/kibana/package.json )
+
+echo "Here's the current config:"
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/index-pattern/logstash-*; echo; echo
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/config/${kibana_version}; echo; echo
+
+echo "Saving the current config to json files"
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/index-pattern/logstash-* | jq '._source' > index-pattern.json
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/config/${kibana_version} | jq '._source' > config.json
+
+echo "Deleting current config"
+curl -s -XDELETE http://${es_host}:${es_port}/${kibana_index}; echo; echo
+curl -s -XDELETE http://${es_host}:${es_port}/${kibana_index}/config/${kibana_version}; echo; echo
+
+echo "Here's the current config (should be empty):"
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/index-pattern/logstash-*; echo; echo
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/config/${kibana_version}; echo; echo
+
+echo "Loading config from json files"
+curl -XPUT http://${es_host}:${es_port}/${kibana_index}/index-pattern/logstash-* -d@index-pattern.json; echo; echo
+curl -XPUT http://${es_host}:${es_port}/${kibana_index}/config/${kibana_version} -d@config.json; echo; echo
+
+echo "Here's the current config (should be populated)"
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/index-pattern/logstash-*; echo; echo
+curl -XGET http://${es_host}:${es_port}/${kibana_index}/config/${kibana_version}; echo; echo
+
+echo "Check Kibana!"

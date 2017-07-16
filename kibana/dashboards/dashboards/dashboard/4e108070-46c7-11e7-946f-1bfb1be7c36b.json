@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Connections - Source - Top Connection Duration", 
+  "uiStateJSON": "{\"P-3\":{\"mapZoom\":2,\"mapCenter\":[14.604847155053898,0.17578125]}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"size_x\":10,\"size_y\":10,\"panelIndex\":3,\"type\":\"visualization\",\"id\":\"5ea38360-46c7-11e7-946f-1bfb1be7c36b\",\"col\":3,\"row\":1}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

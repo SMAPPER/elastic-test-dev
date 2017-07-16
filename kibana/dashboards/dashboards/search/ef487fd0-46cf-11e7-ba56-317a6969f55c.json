@@ -1,0 +1,16 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "Errors", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"tags:_grokparsefailure OR tags:_csvparsefailure OR tags:_rubyexception\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "_source"
+  ]
+}

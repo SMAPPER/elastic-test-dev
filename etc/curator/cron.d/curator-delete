@@ -1,0 +1,7 @@
+#/etc/cron.d/curator-delete
+#
+#crontab entry curator 'delete' action
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/localbin:/sbin:/bin?usr/sbin:/usr/bin
+* * * * * root docker exec so-curator curator --config /etc/curator/config/curator.yml --dry-run /etc/curator/action/delete.yml > /dev/null 2>&1

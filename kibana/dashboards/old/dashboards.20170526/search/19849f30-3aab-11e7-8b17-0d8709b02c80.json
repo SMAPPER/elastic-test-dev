@@ -1,0 +1,21 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "SMB - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"query\":\"(type:bro_smb_mapping OR type:bro_smb_files)\",\"analyze_wildcard\":true}},\"filter\":[]}"
+  }, 
+  "columns": [
+    "source_ip", 
+    "source_port", 
+    "destination_ip", 
+    "destination_port", 
+    "uid", 
+    "_id"
+  ]
+}

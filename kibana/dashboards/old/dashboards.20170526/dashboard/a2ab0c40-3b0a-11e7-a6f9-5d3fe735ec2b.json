@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Connections - Total Bytes", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"col\":8,\"id\":\"eeafbb70-3b0c-11e7-a6f9-5d3fe735ec2b\",\"panelIndex\":1,\"row\":3,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"41a33c80-3b0d-11e7-a6f9-5d3fe735ec2b\",\"panelIndex\":2,\"row\":3,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"acd65230-3b0d-11e7-a0fe-29878c6f414a\",\"panelIndex\":3,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"f1325230-3b0d-11e7-a0fe-29878c6f414a\",\"panelIndex\":4,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":5,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"50c47510-3b0f-11e7-a0fe-29878c6f414a\",\"panelIndex\":6,\"row\":1,\"size_x\":10,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"9bf42190-342d-11e7-9e93-53b62e1857b2\",\"panelIndex\":7,\"row\":11,\"size_x\":12,\"size_y\":5,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

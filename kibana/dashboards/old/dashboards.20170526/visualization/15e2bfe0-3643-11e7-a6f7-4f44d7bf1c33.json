@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"OSSEC - Log Count\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":\"30\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "OSSEC - Log Count", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "efba60c0-3642-11e7-a6f7-4f44d7bf1c33", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

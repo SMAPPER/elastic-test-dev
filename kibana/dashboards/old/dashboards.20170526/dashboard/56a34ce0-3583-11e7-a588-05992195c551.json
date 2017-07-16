@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - IRC", 
+  "uiStateJSON": "{\"P-5\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"680c66e0-35b7-11e7-a994-c528746bc6e8\",\"panelIndex\":3,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"85b1f890-35b7-11e7-a994-c528746bc6e8\",\"panelIndex\":4,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":6,\"id\":\"bf959cb0-35b7-11e7-a994-c528746bc6e8\",\"panelIndex\":5,\"row\":7,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"e4615200-35b7-11e7-a994-c528746bc6e8\",\"panelIndex\":6,\"row\":7,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"4bee4310-35b8-11e7-a994-c528746bc6e8\",\"panelIndex\":7,\"row\":7,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"bf1ca6b0-35b8-11e7-a994-c528746bc6e8\",\"panelIndex\":8,\"row\":3,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"7ed22560-35ba-11e7-b9ee-834112670159\",\"panelIndex\":9,\"row\":3,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"344c6010-342e-11e7-9e93-53b62e1857b2\",\"panelIndex\":10,\"row\":11,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

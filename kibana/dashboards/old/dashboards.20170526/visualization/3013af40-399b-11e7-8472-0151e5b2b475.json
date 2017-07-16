@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Intel - Seen (Donut Chart)\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"seen_where.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Seen (Where)\"}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Intel - Seen (Donut Chart)", 
+  "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}", 
+  "version": 1, 
+  "savedSearchId": "0d4e3a60-342e-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

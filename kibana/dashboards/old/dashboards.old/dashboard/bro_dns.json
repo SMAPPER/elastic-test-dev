@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "bro_dns", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"id\":\"DNS-Clients\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":4,\"size_y\":2,\"col\":5,\"row\":1},{\"id\":\"DNS-Servers\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":2,\"col\":9,\"row\":1},{\"id\":\"DNS-Types\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":4,\"size_y\":2,\"col\":9,\"row\":6},{\"id\":\"DNS-Queries\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":6,\"size_y\":3,\"col\":1,\"row\":5},{\"id\":\"DNS-Ports\",\"type\":\"visualization\",\"panelIndex\":5,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":8},{\"id\":\"DNS-Classes\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":4,\"size_y\":2,\"col\":5,\"row\":8},{\"id\":\"DNS-Answers\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":6,\"size_y\":3,\"col\":7,\"row\":3},{\"id\":\"bro_dns\",\"type\":\"search\",\"panelIndex\":9,\"size_x\":12,\"size_y\":10,\"col\":1,\"row\":10,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"sort\":[\"@timestamp\",\"desc\"]},{\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"type\":\"visualization\",\"panelIndex\":11,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":1}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+  }
+}

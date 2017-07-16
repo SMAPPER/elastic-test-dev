@@ -1,0 +1,21 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "RFB - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"type:bro_rfb\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "source_ip", 
+    "source_port", 
+    "destination_ip", 
+    "destination_port", 
+    "uid", 
+    "_id"
+  ]
+}

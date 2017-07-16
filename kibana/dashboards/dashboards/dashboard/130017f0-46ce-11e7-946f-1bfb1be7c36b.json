@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Stats", 
+  "uiStateJSON": "{\"P-2\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-6\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}},\"P-7\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}},\"P-8\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}},\"P-5\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}}", 
+  "panelsJSON": "[{\"col\":3,\"id\":\"f86bc870-46ce-11e7-946f-1bfb1be7c36b\",\"panelIndex\":1,\"row\":3,\"size_x\":10,\"size_y\":6,\"type\":\"visualization\"},{\"col\":3,\"id\":\"0f25aac0-3434-11e7-8867-29a39c0f86b2\",\"panelIndex\":2,\"row\":9,\"size_x\":5,\"size_y\":6,\"type\":\"visualization\"},{\"col\":8,\"id\":\"9c979ea0-345b-11e7-8867-29a39c0f86b2\",\"panelIndex\":3,\"row\":9,\"size_x\":5,\"size_y\":7,\"type\":\"visualization\"},{\"col\":3,\"id\":\"3a273780-46d0-11e7-946f-1bfb1be7c36b\",\"panelIndex\":4,\"row\":16,\"size_x\":10,\"size_y\":6,\"type\":\"visualization\"},{\"col\":9,\"id\":\"ab25e9e0-46d0-11e7-946f-1bfb1be7c36b\",\"panelIndex\":5,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":3,\"id\":\"dd6e1350-46d0-11e7-946f-1bfb1be7c36b\",\"panelIndex\":6,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"e415e9c0-46d1-11e7-946f-1bfb1be7c36b\",\"panelIndex\":7,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"82524b70-46d1-11e7-946f-1bfb1be7c36b\",\"panelIndex\":8,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":9,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"_source\"],\"id\":\"ef487fd0-46cf-11e7-ba56-317a6969f55c\",\"panelIndex\":10,\"row\":22,\"size_x\":12,\"size_y\":5,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

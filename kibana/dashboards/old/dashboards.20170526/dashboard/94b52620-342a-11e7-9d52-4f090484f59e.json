@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Overview", 
+  "uiStateJSON": "{\"P-18\":{\"vis\":{\"colors\":{\"Count\":\"#64B0C8\"},\"legendOpen\":false}},\"P-4\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-5\":{\"vis\":{\"legendOpen\":true}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":11,\"type\":\"visualization\"},{\"col\":3,\"id\":\"adcd4b00-342b-11e7-9d52-4f090484f59e\",\"panelIndex\":4,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":3,\"id\":\"0d8c6290-3433-11e7-8867-29a39c0f86b2\",\"panelIndex\":5,\"row\":8,\"size_x\":5,\"size_y\":6,\"type\":\"visualization\"},{\"col\":8,\"id\":\"9c979ea0-345b-11e7-8867-29a39c0f86b2\",\"panelIndex\":6,\"row\":14,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"_id\"],\"id\":\"aa05e920-3433-11e7-8867-29a39c0f86b2\",\"panelIndex\":8,\"row\":18,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"ee3ff020-345d-11e7-8867-29a39c0f86b2\",\"panelIndex\":9,\"row\":14,\"size_x\":7,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"6ca12600-345e-11e7-8867-29a39c0f86b2\",\"panelIndex\":10,\"row\":8,\"size_x\":5,\"size_y\":6,\"type\":\"visualization\"},{\"col\":5,\"id\":\"1c2aeb50-365e-11e7-b896-5bdd6bfa1561\",\"panelIndex\":12,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"b56b85c0-34e4-11e7-9669-7f1d3242b798\",\"panelIndex\":14,\"row\":3,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":11,\"id\":\"3867eb20-3644-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":15,\"row\":3,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"18bbfb10-34e4-11e7-9669-7f1d3242b798\",\"panelIndex\":16,\"row\":3,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":3,\"id\":\"2ce56d00-398b-11e7-84f8-a1f7cef50fcb\",\"panelIndex\":17,\"row\":3,\"size_x\":4,\"size_y\":5,\"type\":\"visualization\"},{\"col\":7,\"id\":\"999285d0-415d-11e7-8493-51634b0a4565\",\"panelIndex\":18,\"row\":5,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

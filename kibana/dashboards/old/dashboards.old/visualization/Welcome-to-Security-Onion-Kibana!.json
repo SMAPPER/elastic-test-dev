@@ -1,0 +1,10 @@
+{
+  "visState": "{\"title\":\"Welcome to Security Onion Kibana!\",\"type\":\"html\",\"params\":{\"html\":\"Dashboards for multiple data types:\\n<table>\\n    <tr>\\n        <td><a href=\\\"/app/kibana\\\">Overview</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/Indicator\\\">Detail</a>&nbsp;&nbsp;</td>\\n    </tr>\\n</table>\\nAlert Data:\\n<table>\\n    <tr>\\n        <td><a href=\\\"/app/kibana#/dashboard/Notices\\\">Bro Notices</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/NIDS\\\">NIDS</a>&nbsp;&nbsp;</td>\\n    </tr>\\n</table>\\nWhere do you want to hunt today?\\n<table>\\n    <tr>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_conn\\\">Connections</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_dns\\\">DNS</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_http\\\">HTTP</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_ssl\\\">SSL</a>&nbsp;&nbsp;</td>\\n    </tr>\\n</table>\\n<br>\\n<table>\\n    <tr>\\n        <td><a href=\\\"/squert\\\">Squert</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/logout.html\\\">Logout</a></td>\\n    </tr>\\n</table>\\n\"},\"aggs\":[],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Welcome to Security Onion Kibana!", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+  }
+}

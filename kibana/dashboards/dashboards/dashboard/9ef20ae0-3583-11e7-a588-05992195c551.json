@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - RFB", 
+  "uiStateJSON": "{\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-7\":{\"vis\":{\"colors\":{\"-\":\"#967302\",\"T\":\"#0A50A1\"},\"legendOpen\":false}},\"P-8\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-2\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"12542240-3640-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"265a04d0-3640-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":4,\"id\":\"869e3030-371e-11e7-90f8-87842d5eedc9\",\"panelIndex\":5,\"row\":3,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"bf47f4c0-371e-11e7-90f8-87842d5eedc9\",\"panelIndex\":6,\"row\":9,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"14274040-371f-11e7-90f8-87842d5eedc9\",\"panelIndex\":7,\"row\":3,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"63c072c0-371f-11e7-90f8-87842d5eedc9\",\"panelIndex\":8,\"row\":9,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"864da9c0-371f-11e7-90f8-87842d5eedc9\",\"panelIndex\":9,\"row\":6,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"8ba53710-342e-11e7-9e93-53b62e1857b2\",\"panelIndex\":10,\"row\":12,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

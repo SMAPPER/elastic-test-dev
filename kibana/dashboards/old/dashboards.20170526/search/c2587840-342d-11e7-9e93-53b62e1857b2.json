@@ -1,0 +1,20 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "DNP3 - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\n  \"index\": \"logstash-*\",\n  \"highlightAll\": true,\n  \"version\": true,\n  \"filter\": [],\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"type:bro_dnp3\",\n      \"analyze_wildcard\": true\n    }\n  }\n}"
+  }, 
+  "columns": [
+    "source_ip", 
+    "destination_ip", 
+    "destination_port", 
+    "uid", 
+    "_id"
+  ]
+}

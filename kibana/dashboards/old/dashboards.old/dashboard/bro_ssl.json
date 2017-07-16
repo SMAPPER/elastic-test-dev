@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "bro_ssl", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"id\":\"bro_ssl\",\"type\":\"search\",\"panelIndex\":1,\"size_x\":12,\"size_y\":8,\"col\":1,\"row\":15,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"sort\":[\"@timestamp\",\"desc\"]},{\"id\":\"SSL-Clients\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":4,\"col\":5,\"row\":1},{\"id\":\"SSL-Servers\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":4,\"size_y\":4,\"col\":9,\"row\":1},{\"id\":\"SSL-Server-Names\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":4,\"size_y\":5,\"col\":1,\"row\":7},{\"id\":\"SSL-Ports\",\"type\":\"visualization\",\"panelIndex\":5,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":5},{\"id\":\"SSL-Versions\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":10},{\"id\":\"SSL-Ciphers\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":9,\"size_y\":3,\"col\":1,\"row\":12},{\"id\":\"SSL-Certificate-Subjects\",\"type\":\"visualization\",\"panelIndex\":8,\"size_x\":8,\"size_y\":5,\"col\":5,\"row\":5},{\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"type\":\"visualization\",\"panelIndex\":10,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":1}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+  }
+}

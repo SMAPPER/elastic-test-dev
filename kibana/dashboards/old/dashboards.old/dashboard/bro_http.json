@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "bro_http", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"col\":5,\"id\":\"HTTP-Sites-Hosting-EXEs\",\"panelIndex\":2,\"row\":5,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Source-IP-Addresses\",\"panelIndex\":5,\"row\":5,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Destination-IP-Addresses\",\"panelIndex\":6,\"row\":8,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Destination-Ports\",\"panelIndex\":7,\"row\":11,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":10,\"id\":\"HTTP-MIME-Types\",\"panelIndex\":9,\"row\":7,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":10,\"id\":\"HTTP-Status\",\"panelIndex\":11,\"row\":4,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"bro_http\",\"panelIndex\":13,\"row\":14,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":5,\"id\":\"HTTP-URIs\",\"panelIndex\":14,\"row\":8,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":10,\"id\":\"HTTP-Methods\",\"panelIndex\":15,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"HTTP-Sites\",\"panelIndex\":16,\"row\":1,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"type\":\"visualization\",\"panelIndex\":18,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":1}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+  }
+}

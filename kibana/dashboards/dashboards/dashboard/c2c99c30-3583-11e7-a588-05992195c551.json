@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - Software", 
+  "uiStateJSON": "{\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-4\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"ca47f610-3640-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"da4cc2c0-3640-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":3,\"id\":\"424a4490-3670-11e7-8c78-e3086faf385c\",\"panelIndex\":4,\"row\":8,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"name\",\"software_type\",\"_id\"],\"id\":\"ba3d77e0-342e-11e7-9e93-53b62e1857b2\",\"panelIndex\":5,\"row\":11,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":7,\"id\":\"e7ab4dd0-3670-11e7-8c78-e3086faf385c\",\"panelIndex\":6,\"row\":8,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"fdec0530-3670-11e7-8c78-e3086faf385c\",\"panelIndex\":7,\"row\":3,\"size_x\":10,\"size_y\":5,\"type\":\"visualization\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "OSSEC Alerts", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"3867eb20-3644-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":2,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":6,\"id\":\"4fa0e530-3644-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":3,\"row\":1,\"size_x\":7,\"size_y\":2,\"type\":\"visualization\"},{\"col\":3,\"id\":\"2ce56d00-398b-11e7-84f8-a1f7cef50fcb\",\"panelIndex\":5,\"row\":3,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"69d98570-398b-11e7-84f8-a1f7cef50fcb\",\"panelIndex\":6,\"row\":3,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"d4e00ce0-398b-11e7-84f8-a1f7cef50fcb\",\"panelIndex\":8,\"row\":6,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"25046860-398c-11e7-84f8-a1f7cef50fcb\",\"panelIndex\":9,\"row\":9,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"e02efd30-398c-11e7-84f8-a1f7cef50fcb\",\"panelIndex\":10,\"row\":6,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"size_x\":12,\"size_y\":6,\"panelIndex\":11,\"type\":\"search\",\"id\":\"d9096bb0-342f-11e7-9e93-53b62e1857b2\",\"col\":1,\"row\":12,\"columns\":[\"alert_level\",\"classification\",\"description\"],\"sort\":[\"@timestamp\",\"desc\"]}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

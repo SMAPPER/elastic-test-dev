@@ -1,0 +1,21 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "Intel - Logs", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"type:bro_intel\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "source_ip", 
+    "destination_ip", 
+    "destination_port", 
+    "uid", 
+    "fuid", 
+    "_id"
+  ]
+}

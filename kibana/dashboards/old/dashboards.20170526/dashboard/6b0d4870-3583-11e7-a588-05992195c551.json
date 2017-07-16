@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - Kerberos", 
+  "uiStateJSON": "{\"P-10\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-11\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-12\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-5\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}", 
+  "panelsJSON": "[{\"col\":3,\"id\":\"b405aef0-35ba-11e7-b9ee-834112670159\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":9,\"type\":\"visualization\"},{\"col\":5,\"id\":\"c97cd4c0-35ba-11e7-b9ee-834112670159\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"destination_ip\",\"destination_port\",\"request_type\",\"uid\",\"_id\"],\"id\":\"452daa10-342e-11e7-9e93-53b62e1857b2\",\"panelIndex\":4,\"row\":13,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":6,\"id\":\"710ccbf0-35bb-11e7-b9ee-834112670159\",\"panelIndex\":5,\"row\":10,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"b31231c0-35bb-11e7-b9ee-834112670159\",\"panelIndex\":6,\"row\":6,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"f0178840-35bb-11e7-b9ee-834112670159\",\"panelIndex\":7,\"row\":10,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b22b53c0-3635-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":8,\"row\":10,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"e3fffae0-3635-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":9,\"row\":6,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"28d04080-3636-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":10,\"row\":3,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"3f34faa0-3636-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":11,\"row\":3,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"84f28670-3636-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":12,\"row\":3,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

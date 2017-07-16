@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Overview", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"col\":5,\"id\":\"Total-Number-of-Logs\",\"panelIndex\":14,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Data-Types-Pie-Chart\",\"panelIndex\":18,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Sites-Hosting-EXEs-Pie-Chart\",\"panelIndex\":20,\"row\":5,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"Search\",\"panelIndex\":31,\"row\":9,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":32,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Bro-Notices-Chart\",\"panelIndex\":35,\"row\":3,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Protocols-(Chart)\",\"panelIndex\":37,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"NIDS-Alerts-(Chart)\",\"panelIndex\":38,\"row\":3,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Connections-Top-Source-IP-Addresses-Pie-Chart\",\"type\":\"visualization\",\"panelIndex\":39,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":7},{\"id\":\"Connections-Top-Destination-IP-Addresses-Pie-Chart\",\"type\":\"visualization\",\"panelIndex\":40,\"size_x\":4,\"size_y\":2,\"col\":5,\"row\":7},{\"id\":\"Connections-Top-Destination-Ports-Pie-Chart\",\"type\":\"visualization\",\"panelIndex\":41,\"size_x\":4,\"size_y\":2,\"col\":9,\"row\":7}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+  }
+}

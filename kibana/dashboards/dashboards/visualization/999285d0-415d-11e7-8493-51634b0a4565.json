@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Overview - Alert Summary (Bar Chart)\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"labels\":{\"show\":true,\"truncate\":100,\"rotate\":75},\"position\":\"bottom\",\"scale\":{\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{},\"type\":\"category\"}],\"defaultYExtents\":false,\"drawLinesBetweenPoints\":true,\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"interpolate\":\"linear\",\"legendPosition\":\"right\",\"orderBucketsBySum\":false,\"radiusRatio\":9,\"scale\":\"linear\",\"seriesParams\":[{\"data\":{\"id\":\"1\",\"label\":\"Count\"},\"drawLinesBetweenPoints\":true,\"mode\":\"stacked\",\"show\":\"true\",\"showCircles\":true,\"type\":\"histogram\",\"valueAxis\":\"ValueAxis-1\"}],\"setYExtents\":false,\"showCircles\":true,\"times\":[],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"labels\":{\"filter\":false,\"rotate\":0,\"show\":true,\"truncate\":100},\"name\":\"LeftAxis-1\",\"position\":\"left\",\"scale\":{\"mode\":\"normal\",\"type\":\"linear\"},\"show\":true,\"style\":{},\"title\":{},\"type\":\"value\"}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"type:bro_notice\",\"analyze_wildcard\":true}}},\"label\":\"Bro Notices\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"type:ossec\",\"analyze_wildcard\":true}}},\"label\":\"OSSEC Alerts\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"type:snort\",\"analyze_wildcard\":true}}},\"label\":\"NIDS Alerts\"}]}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Overview - Alert Summary (Bar Chart)", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "5ee67050-4157-11e7-9a3b-dba7a0c85da1", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

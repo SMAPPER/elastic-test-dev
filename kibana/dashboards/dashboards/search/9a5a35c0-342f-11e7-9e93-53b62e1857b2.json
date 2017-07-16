@@ -1,0 +1,20 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "NIDS - Alerts", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"type:snort\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "source_ip", 
+    "source_port", 
+    "destination_ip", 
+    "destination_port", 
+    "_id"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Overview - Alert Summary (Pie Chart)\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"alert:*\",\"analyze_wildcard\":true}}},\"label\":\"NIDS Alerts\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"type:bro_notice\",\"analyze_wildcard\":true}}},\"label\":\"Notices (Bro)\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"type:ossec\",\"analyze_wildcard\":true}}},\"label\":\"OSSEC Alerts\"}]}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Overview - Alert Summary (Pie Chart)", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "5ee67050-4157-11e7-9a3b-dba7a0c85da1", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

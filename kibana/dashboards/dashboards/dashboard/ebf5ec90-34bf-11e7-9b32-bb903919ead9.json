@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - DNS", 
+  "uiStateJSON": "{\"P-10\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-11\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-13\":{\"vis\":{\"legendOpen\":false}},\"P-5\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-8\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-4\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"05d91f10-34c0-11e7-9b32-bb903919ead9\",\"panelIndex\":4,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":8,\"id\":\"6ef90c30-34c0-11e7-9b32-bb903919ead9\",\"panelIndex\":5,\"row\":12,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"57a9a3f0-34c0-11e7-9b32-bb903919ead9\",\"panelIndex\":6,\"row\":12,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"45a652b0-34c1-11e7-917c-af7a9d11771a\",\"panelIndex\":7,\"row\":3,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"5fd470e0-34c1-11e7-917c-af7a9d11771a\",\"panelIndex\":8,\"row\":3,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"8df86c10-34c1-11e7-917c-af7a9d11771a\",\"panelIndex\":9,\"row\":6,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":3,\"id\":\"e8e3b8a0-34c1-11e7-917c-af7a9d11771a\",\"panelIndex\":10,\"row\":9,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":8,\"id\":\"09b1b370-34c2-11e7-917c-af7a9d11771a\",\"panelIndex\":11,\"row\":9,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"1ecdd2e0-34c0-11e7-9b32-bb903919ead9\",\"panelIndex\":13,\"row\":1,\"size_x\":7,\"size_y\":2,\"type\":\"visualization\"},{\"col\":8,\"id\":\"8cab7160-367c-11e7-8c78-e3086faf385c\",\"panelIndex\":15,\"row\":6,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"d46522e0-342d-11e7-9e93-53b62e1857b2\",\"panelIndex\":16,\"row\":15,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

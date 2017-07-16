@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - Files", 
+  "uiStateJSON": "{\"P-10\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-2\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-8\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-1\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}}", 
+  "panelsJSON": "[{\"col\":3,\"id\":\"56da1ee0-3584-11e7-a588-05992195c551\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"6571ee10-3584-11e7-a588-05992195c551\",\"panelIndex\":2,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":3,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"file_ip\",\"destination_ip\",\"source\",\"uid\",\"fuid\",\"_id\"],\"id\":\"e929e8a0-342d-11e7-9e93-53b62e1857b2\",\"panelIndex\":4,\"row\":15,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":3,\"id\":\"7589d820-3585-11e7-8f28-2b291d0f6d86\",\"panelIndex\":5,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"cb3f3850-3585-11e7-8f28-2b291d0f6d86\",\"panelIndex\":6,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"295d7ed0-3656-11e7-baa7-b7de4ee40605\",\"panelIndex\":7,\"row\":11,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":3,\"id\":\"67ab33d0-3656-11e7-baa7-b7de4ee40605\",\"panelIndex\":8,\"row\":7,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":7,\"id\":\"8c57f3d0-3674-11e7-8c78-e3086faf385c\",\"panelIndex\":9,\"row\":3,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"aa021c90-3678-11e7-8c78-e3086faf385c\",\"panelIndex\":10,\"row\":11,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

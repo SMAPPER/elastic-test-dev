@@ -1,0 +1,1315 @@
+[
+  {
+    "_id": "bro_dns",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeRestore": false,
+      "description": "",
+      "title": "bro_dns",
+      "uiStateJSON": "{}",
+      "panelsJSON": "[{\"id\":\"DNS-Clients\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":4,\"size_y\":2,\"col\":5,\"row\":1},{\"id\":\"DNS-Servers\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":2,\"col\":9,\"row\":1},{\"id\":\"DNS-Types\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":4,\"size_y\":2,\"col\":9,\"row\":6},{\"id\":\"DNS-Queries\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":6,\"size_y\":3,\"col\":1,\"row\":5},{\"id\":\"DNS-Ports\",\"type\":\"visualization\",\"panelIndex\":5,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":8},{\"id\":\"DNS-Classes\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":4,\"size_y\":2,\"col\":5,\"row\":8},{\"id\":\"DNS-Answers\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":6,\"size_y\":3,\"col\":7,\"row\":3},{\"id\":\"bro_dns\",\"type\":\"search\",\"panelIndex\":9,\"size_x\":12,\"size_y\":10,\"col\":1,\"row\":10,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"sort\":[\"@timestamp\",\"desc\"]},{\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"type\":\"visualization\",\"panelIndex\":11,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Host-Hunting",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeRestore": false,
+      "description": "",
+      "title": "Host Hunting",
+      "uiStateJSON": "{\"P-3\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "panelsJSON": "[{\"col\":4,\"id\":\"DNS-Top-Queries\",\"panelIndex\":2,\"row\":3,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Data-Types\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":10,\"id\":\"HTTP-Sites-Hosting-EXEs\",\"panelIndex\":5,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"HTTP-Top-Sites\",\"panelIndex\":6,\"row\":3,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":4,\"id\":\"NIDS-Alerts-Table\",\"panelIndex\":7,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Notice-Top-Notice-Types\",\"panelIndex\":8,\"row\":3,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"SSL-Subjects\",\"panelIndex\":9,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Search\",\"type\":\"search\",\"panelIndex\":10,\"size_x\":12,\"size_y\":5,\"col\":1,\"row\":5,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Indicator",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeRestore": false,
+      "description": "",
+      "title": "Indicator",
+      "uiStateJSON": "{\"P-3\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Data-Types\",\"panelIndex\":3,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Sites-Hosting-EXEs\",\"panelIndex\":5,\"row\":5,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"NIDS-Alerts-Table\",\"panelIndex\":7,\"row\":7,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"Search\",\"panelIndex\":10,\"row\":11,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":7,\"id\":\"SSL-Server-Names\",\"panelIndex\":16,\"row\":9,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":17,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Sites\",\"panelIndex\":18,\"row\":9,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Source-IP-Addresses\",\"panelIndex\":20,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Destination-IP-Addresses\",\"panelIndex\":21,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"DNS-Queries\",\"panelIndex\":22,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Destination-Ports\",\"panelIndex\":23,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Bro-Notices\",\"type\":\"visualization\",\"panelIndex\":24,\"size_x\":6,\"size_y\":2,\"col\":7,\"row\":5}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Notices",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Notices",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"id\":\"Search\",\"type\":\"search\",\"panelIndex\":1,\"size_x\":12,\"size_y\":4,\"col\":1,\"row\":5,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"sort\":[\"@timestamp\",\"desc\"]},{\"id\":\"Bro-Notices\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":3},{\"id\":\"Bro-Notices-Chart\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":8,\"size_y\":4,\"col\":5,\"row\":1},{\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Overview",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeRestore": false,
+      "description": "",
+      "title": "Overview",
+      "uiStateJSON": "{}",
+      "panelsJSON": "[{\"col\":5,\"id\":\"Total-Number-of-Logs\",\"panelIndex\":14,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Data-Types-Pie-Chart\",\"panelIndex\":18,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Sites-Hosting-EXEs-Pie-Chart\",\"panelIndex\":20,\"row\":5,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"Search\",\"panelIndex\":31,\"row\":7,\"size_x\":12,\"size_y\":5,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":32,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Bro-Notices-Chart\",\"panelIndex\":35,\"row\":3,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Protocols-(Chart)\",\"panelIndex\":37,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"NIDS-Alerts-(Chart)\",\"panelIndex\":38,\"row\":3,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "bro_conn",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeRestore": false,
+      "description": "",
+      "title": "bro_conn",
+      "uiStateJSON": "{}",
+      "panelsJSON": "[{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"sensor_name\",\"uid\",\"_id\"],\"id\":\"bro_conn\",\"panelIndex\":12,\"row\":7,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":13,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Destination-IP-Addresses\",\"panelIndex\":15,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Source-IP-Addresses\",\"panelIndex\":16,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Destination-Ports\",\"panelIndex\":17,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Protocols\",\"panelIndex\":18,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Source-Countries\",\"panelIndex\":19,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Sensors\",\"panelIndex\":20,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Services\",\"panelIndex\":21,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Destination-Countries\",\"type\":\"visualization\",\"panelIndex\":22,\"size_x\":4,\"size_y\":2,\"col\":5,\"row\":5}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "bro_http",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeRestore": false,
+      "description": "",
+      "title": "bro_http",
+      "uiStateJSON": "{}",
+      "panelsJSON": "[{\"col\":5,\"id\":\"HTTP-Sites-Hosting-EXEs\",\"panelIndex\":2,\"row\":5,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Source-IP-Addresses\",\"panelIndex\":5,\"row\":5,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Destination-IP-Addresses\",\"panelIndex\":6,\"row\":8,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Destination-Ports\",\"panelIndex\":7,\"row\":11,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":10,\"id\":\"HTTP-MIME-Types\",\"panelIndex\":9,\"row\":7,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":10,\"id\":\"HTTP-Status\",\"panelIndex\":11,\"row\":4,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"bro_http\",\"panelIndex\":13,\"row\":14,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":5,\"id\":\"HTTP-URIs\",\"panelIndex\":14,\"row\":8,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":10,\"id\":\"HTTP-Methods\",\"panelIndex\":15,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"HTTP-Sites\",\"panelIndex\":16,\"row\":1,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"type\":\"visualization\",\"panelIndex\":18,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "NIDS",
+    "_type": "dashboard",
+    "_source": {
+      "title": "NIDS",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"Search\",\"panelIndex\":1,\"row\":7,\"size_x\":12,\"size_y\":4,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"NIDS-Alerts-(Chart)\",\"panelIndex\":2,\"row\":3,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":5,\"id\":\"NIDS-Alerts\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":6,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "bro_ssl",
+    "_type": "dashboard",
+    "_source": {
+      "hits": 0,
+      "timeRestore": false,
+      "description": "",
+      "title": "bro_ssl",
+      "uiStateJSON": "{}",
+      "panelsJSON": "[{\"id\":\"bro_ssl\",\"type\":\"search\",\"panelIndex\":1,\"size_x\":12,\"size_y\":8,\"col\":1,\"row\":15,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"sort\":[\"@timestamp\",\"desc\"]},{\"id\":\"SSL-Clients\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":4,\"col\":5,\"row\":1},{\"id\":\"SSL-Servers\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":4,\"size_y\":4,\"col\":9,\"row\":1},{\"id\":\"SSL-Server-Names\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":4,\"size_y\":5,\"col\":1,\"row\":7},{\"id\":\"SSL-Ports\",\"type\":\"visualization\",\"panelIndex\":5,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":5},{\"id\":\"SSL-Versions\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":10},{\"id\":\"SSL-Ciphers\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":9,\"size_y\":3,\"col\":1,\"row\":12},{\"id\":\"SSL-Certificate-Subjects\",\"type\":\"visualization\",\"panelIndex\":8,\"size_x\":8,\"size_y\":5,\"col\":5,\"row\":5},{\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"type\":\"visualization\",\"panelIndex\":10,\"size_x\":4,\"size_y\":2,\"col\":1,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "bro_dns",
+    "_type": "search",
+    "_source": {
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "hits": 0,
+      "description": "",
+      "title": "bro_dns",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"type:bro_dns\",\"analyze_wildcard\":true}}}"
+      },
+      "columns": [
+        "source_ip",
+        "source_port",
+        "destination_ip",
+        "destination_port",
+        "uid",
+        "_id"
+      ]
+    }
+  },
+  {
+    "_id": "Search",
+    "_type": "search",
+    "_source": {
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "hits": 0,
+      "description": "",
+      "title": "Search",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}"
+      },
+      "columns": [
+        "source_ip",
+        "source_port",
+        "destination_ip",
+        "destination_port",
+        "uid",
+        "_id"
+      ]
+    }
+  },
+  {
+    "_id": "bro_conn",
+    "_type": "search",
+    "_source": {
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "hits": 0,
+      "description": "",
+      "title": "bro_conn",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"type:bro_conn\",\"analyze_wildcard\":true}}}"
+      },
+      "columns": [
+        "source_ip",
+        "source_port",
+        "destination_ip",
+        "destination_port",
+        "sensor_name",
+        "uid",
+        "_id"
+      ]
+    }
+  },
+  {
+    "_id": "bro_http",
+    "_type": "search",
+    "_source": {
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "hits": 0,
+      "description": "",
+      "title": "bro_http",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"type:bro_http\",\"analyze_wildcard\":true}}}"
+      },
+      "columns": [
+        "source_ip",
+        "source_port",
+        "destination_ip",
+        "destination_port",
+        "uid",
+        "_id"
+      ]
+    }
+  },
+  {
+    "_id": "bro_ssl",
+    "_type": "search",
+    "_source": {
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "hits": 0,
+      "description": "",
+      "title": "bro_ssl",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647},\"query\":{\"query_string\":{\"query\":\"type:bro_ssl\",\"analyze_wildcard\":true}}}"
+      },
+      "columns": [
+        "source_ip",
+        "source_port",
+        "destination_ip",
+        "destination_port",
+        "uid",
+        "_id"
+      ]
+    }
+  },
+  {
+    "_id": "Bro-Notices-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Notice - Top Notice Types - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"note.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Bro Notices Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Answers-(Chart)",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS - Top Answers - Pie Chart\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"shareYAxis\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"answers.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Answers (Chart)",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"53\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Destination-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Destination IP Addresses\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Destination IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Sites",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Top Sites\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"virtual_host.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Sites",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Status-Codes-(Chart)",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Top Status Codes - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"status_message.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Status Codes (Chart)",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "NIDS-Alerts-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"NIDS Alerts - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"alert.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "NIDS Alerts - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "NIDS-Alerts-Table",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"NIDS Alerts - Table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"alert.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "NIDS Alerts - Table",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Notice-Top-Notice-Types-Bar-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Notice - Top Notice Types - Bar Chart\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"note.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Notice - Top Notice Types - Bar Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Certificate-Subjects",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL Server Names\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"certificate_subject.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Certificate Subjects",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_ssl",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Clients",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Clients",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_ssl",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Subjects",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL - Subjects\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"certificate_subject.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL - Subjects",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Top-Destination-Ports",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Destination Ports - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destination_port\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Top Destination Ports",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Connections-Source-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Source IP Addresses\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Connections - Source IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Answers",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS Queries\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"answers.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Answers",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_dns",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Destination-Ports",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - dstport - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_port\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Destination Ports",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Methods-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Top Methods - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"method.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Methods Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_http\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Methods",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Methods\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"method.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Methods",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Sites-Hosting-EXEs",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Sites Hosting EXEs\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"virtual_host.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Sites Hosting EXEs",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"\\\"application/x-dosexec\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Source-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Source IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_http",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Top-Sites-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Top Sites - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"virtual_host.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP - Top Sites - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Protocols-(Chart)",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Protocols\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"protocol.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Protocols (Chart)",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_conn\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Servers",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL Clients\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Servers",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_ssl",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Total-Number-of-Logs",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Total Number of Logs\",\"type\":\"metric-vis-colors\",\"params\":{\"handleNoResults\":true,\"fontSize\":\"30\",\"bgColor\":\"white\",\"fontColor\":\"green\"},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Total Number of Logs",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "NIDS-Alerts",
+    "_type": "visualization",
+    "_source": {
+      "title": "NIDS Alerts",
+      "visState": "{\"title\":\"NIDS Alerts\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"alert.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Welcome-to-Security-Onion-Kibana!",
+    "_type": "visualization",
+    "_source": {
+      "title": "Welcome to Security Onion Kibana!",
+      "visState": "{\"title\":\"Welcome to Security Onion Kibana!\",\"type\":\"html\",\"params\":{\"html\":\"Dashboards that work across multiple data types:\\n<table>\\n    <tr>\\n        <td><a href=\\\"/app/kibana\\\">Overview</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/Indicator\\\">Detail</a>&nbsp;&nbsp;</td>\\n    </tr>\\n</table>\\nAlert Data:\\n<table>\\n    <tr>\\n        <td><a href=\\\"/app/kibana#/dashboard/Notices\\\">Bro Notices</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/NIDS\\\">NIDS</a>&nbsp;&nbsp;</td>\\n    </tr>\\n</table>\\nWhere do you want to hunt today?\\n<table>\\n    <tr>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_conn\\\">Connections</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_dns\\\">DNS</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_http\\\">HTTP</a>&nbsp;&nbsp;</td>\\n        <td><a href=\\\"/app/kibana#/dashboard/bro_ssl\\\">SSL</a>&nbsp;&nbsp;</td>\\n    </tr>\\n</table>\\n\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Bro-Notices",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Notice - Top Notice Types\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"note.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Bro Notices",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Connections-Protocols",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Protocols\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"protocol.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Connections - Protocols",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_conn\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Connections-Top-Destination-Ports-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Destination Ports - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destination_port\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Connections - Top Destination Ports - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_conn\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Connections-Top-Source-IP-Addresses-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Source IP Addresses - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Connections - Top Source IP Addresses - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_conn\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Ports",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS Servers\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_port\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Ports",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_dns",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Return-Codes",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS Types\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"rcode_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Return Codes",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_dns",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Types",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS Classes\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"query_type_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Types",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_dns",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Destination-Ports-(Chart)",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Destination Ports - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destination_port\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Destination Ports (Chart)",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_conn\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Destination-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP Source IP Addresses\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Destination IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_http",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Destination-Ports",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP Destination IP Addresses\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_port\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Destination Ports",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_http",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-MIME-Types",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"resp_mime_types.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP MIME Types",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Status",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP URI\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"status_message.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP Status",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Top-Methods-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Top Methods - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"method.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP - Top Methods - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_http\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Top-Status-Codes-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Top Status Codes - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"status_message.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP - Top Status Codes - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Ciphers",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL Certificate Subjects\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"cipher.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Ciphers",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_ssl",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Ports",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL Servers\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_port\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Ports",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_ssl",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Top-Hostname-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL - Top Hostname - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"server_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL - Top Hostname - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Services",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - service - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"service.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Services",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Connections-Top-Destination-IP-Addresses-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Destination IP Addresses - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Connections - Top Destination IP Addresses - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"bro_conn\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Connections-Top-Source-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Source IP Addresses\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Connections - Top Source IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Clients",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Clients",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_dns",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Servers",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS Clients\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Servers",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_dns",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Top-Answers-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS - Top Answers - Pie Chart\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"shareYAxis\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"answers.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS - Top Answers - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"53\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Top-DNS-Queries-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS - Top DNS Queries - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"query.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS - Top DNS Queries - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"53\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Top-nxdomain-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS - Top nxdomain - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"query.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS - Top nxdomain - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"nxdomain\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Destination-Countries",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - dstcc - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"respond_country_code.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Destination Countries",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-Sites-Hosting-EXEs-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP - Sites Hosting EXEs - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"virtual_host.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP - Sites Hosting EXEs - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"\\\"application/x-dosexec\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "HTTP-URIs",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"HTTP URI\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"uri.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "HTTP URIs",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Hostnames-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL - Top Hostnames - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"server_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Hostnames Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Server-Names",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL Ports\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"server_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Server Names",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_ssl",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Top-Hostnames-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL - Top Hostnames - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"server_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL - Top Hostnames - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Source-Countries",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - srccc - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"original_country_code.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Source Countries",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Top-Destination-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Destination IP Addresses - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Top Destination IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Top-Source-IP-Addresses-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Connections - Top Source IP Addresses - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Top Source IP Addresses - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Connections-Destination-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - dstip - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Connections - Destination IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Classes",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS Answers\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"query_class_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Classes",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_dns",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "DNS-Queries",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"DNS - Top Queries\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"query.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "DNS Queries",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"53\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Data-Types-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Data Types - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"type.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Data Types - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Data-Types",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Data Types\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"type.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Data Types",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Multiple-Groupby",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Multiple Groupby",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "NIDS-Alerts-(Chart)",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"NIDS Alerts - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"alert.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "NIDS Alerts (Chart)",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Notice-Top-Notice-Types-Pie-Chart",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Notice - Top Notice Types - Pie Chart\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":true},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"note.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Notice - Top Notice Types - Pie Chart",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Notice-Top-Notice-Types",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"Notice - Top Notice Types\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"note.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Notice - Top Notice Types",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Protocols",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - protocol - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"protocol.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Protocols",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "SSL-Versions",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"SSL Ciphers\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"version.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "SSL Versions",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_ssl",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Sensors",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - sensorname - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"sensor_name.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Sensors",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Source-IP-Addresses",
+    "_type": "visualization",
+    "_source": {
+      "visState": "{\"title\":\"bro_conn - srcip - table\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip.raw\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "description": "",
+      "title": "Source IP Addresses",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "savedSearchId": "bro_conn",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  }
+]

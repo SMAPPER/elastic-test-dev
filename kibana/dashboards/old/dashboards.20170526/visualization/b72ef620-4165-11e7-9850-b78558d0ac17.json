@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"NTLM - Hostname/Username\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"hostname.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Hostname\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"ntlm_username.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Username\"}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "NTLM - Hostname/Username", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "c21f4fa0-3aab-11e7-8b17-0d8709b02c80", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

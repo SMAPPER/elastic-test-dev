@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - Weird", 
+  "uiStateJSON": "{\"P-5\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-10\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":3,\"direction\":\"desc\"}}}}}", 
+  "panelsJSON": "[{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":3,\"id\":\"0019c600-3642-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":2,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"0dbcade0-3642-11e7-a6f7-4f44d7bf1c33\",\"panelIndex\":3,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":3,\"id\":\"1b837b00-364e-11e7-9dc3-d35061cb642d\",\"panelIndex\":5,\"row\":12,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":8,\"id\":\"312cd460-364e-11e7-9dc3-d35061cb642d\",\"panelIndex\":6,\"row\":12,\"size_x\":5,\"size_y\":5,\"type\":\"visualization\"},{\"col\":3,\"id\":\"5da36db0-364e-11e7-9dc3-d35061cb642d\",\"panelIndex\":7,\"row\":3,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":8,\"id\":\"8dbbbed0-364e-11e7-9dc3-d35061cb642d\",\"panelIndex\":8,\"row\":3,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"e32d0d50-342e-11e7-9e93-53b62e1857b2\",\"panelIndex\":9,\"row\":17,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"size_x\":10,\"size_y\":5,\"panelIndex\":10,\"type\":\"visualization\",\"id\":\"ca3e57d0-4172-11e7-9850-b78558d0ac17\",\"col\":3,\"row\":7}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

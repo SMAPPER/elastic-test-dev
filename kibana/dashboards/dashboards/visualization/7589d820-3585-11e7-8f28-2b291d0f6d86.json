@@ -1,0 +1,11 @@
+{
+  "visState": "{\"title\":\"Files - Files By Source\",\"type\":\"pie\",\"params\":{\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source.keyword\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Source Protocol\"}}],\"listeners\":{}}", 
+  "description": "", 
+  "title": "Files - Files By Source", 
+  "uiStateJSON": "{}", 
+  "version": 1, 
+  "savedSearchId": "e929e8a0-342d-11e7-9e93-53b62e1857b2", 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[]}"
+  }
+}

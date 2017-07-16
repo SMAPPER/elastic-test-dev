@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Bro - DHCP", 
+  "uiStateJSON": "{\"P-2\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-7\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-1\":{\"vis\":{\"defaultColors\":{\"0 - 100\":\"rgb(0,104,55)\"}}}}", 
+  "panelsJSON": "[{\"col\":3,\"id\":\"b9edfa00-357b-11e7-ac34-8965f6420c51\",\"panelIndex\":1,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"e9a7fe80-357b-11e7-ac34-8965f6420c51\",\"panelIndex\":2,\"row\":1,\"size_x\":8,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b3b449d0-3429-11e7-9d52-4f090484f59e\",\"panelIndex\":3,\"row\":1,\"size_x\":2,\"size_y\":10,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"ac1799d0-342d-11e7-9e93-53b62e1857b2\",\"panelIndex\":4,\"row\":14,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":3,\"id\":\"ded67980-3654-11e7-baa7-b7de4ee40605\",\"panelIndex\":5,\"row\":3,\"size_x\":10,\"size_y\":8,\"type\":\"visualization\"},{\"col\":5,\"id\":\"1055ada0-3655-11e7-baa7-b7de4ee40605\",\"panelIndex\":6,\"row\":11,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"317f8410-3655-11e7-baa7-b7de4ee40605\",\"panelIndex\":7,\"row\":11,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"6b975790-3655-11e7-baa7-b7de4ee40605\",\"panelIndex\":8,\"row\":11,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"}]", 
+  "optionsJSON": "{\"darkTheme\":true}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+  }
+}

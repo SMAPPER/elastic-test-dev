@@ -1,0 +1,16 @@
+{
+  "sort": [
+    "@timestamp", 
+    "desc"
+  ], 
+  "hits": 0, 
+  "description": "", 
+  "title": "OSSEC - Archive", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[],\"query\":{\"query_string\":{\"query\":\"type:ossec_archive\",\"analyze_wildcard\":true}}}"
+  }, 
+  "columns": [
+    "message"
+  ]
+}

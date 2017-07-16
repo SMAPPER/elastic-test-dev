@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "Indicator", 
+  "uiStateJSON": "{\"P-3\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}}}", 
+  "panelsJSON": "[{\"col\":5,\"id\":\"Data-Types\",\"panelIndex\":3,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Sites-Hosting-EXEs\",\"panelIndex\":5,\"row\":5,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"NIDS-Alerts-Table\",\"panelIndex\":7,\"row\":7,\"size_x\":12,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"uid\",\"_id\"],\"id\":\"Search\",\"panelIndex\":10,\"row\":11,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":7,\"id\":\"SSL-Server-Names\",\"panelIndex\":16,\"row\":9,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":17,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"HTTP-Sites\",\"panelIndex\":18,\"row\":9,\"size_x\":6,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Source-IP-Addresses\",\"panelIndex\":20,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Destination-IP-Addresses\",\"panelIndex\":21,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"DNS-Queries\",\"panelIndex\":22,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Destination-Ports\",\"panelIndex\":23,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Bro-Notices\",\"type\":\"visualization\",\"panelIndex\":24,\"size_x\":6,\"size_y\":2,\"col\":7,\"row\":5}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hits": 0, 
+  "timeRestore": false, 
+  "description": "", 
+  "title": "bro_conn", 
+  "uiStateJSON": "{}", 
+  "panelsJSON": "[{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"sensor_name\",\"uid\",\"_id\"],\"id\":\"bro_conn\",\"panelIndex\":12,\"row\":7,\"size_x\":12,\"size_y\":7,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Welcome-to-Security-Onion-Kibana!\",\"panelIndex\":13,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Destination-IP-Addresses\",\"panelIndex\":15,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Source-IP-Addresses\",\"panelIndex\":16,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Destination-Ports\",\"panelIndex\":17,\"row\":3,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Protocols\",\"panelIndex\":18,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Source-Countries\",\"panelIndex\":19,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Sensors\",\"panelIndex\":20,\"row\":5,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Services\",\"panelIndex\":21,\"row\":1,\"size_x\":4,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Destination-Countries\",\"type\":\"visualization\",\"panelIndex\":22,\"size_x\":4,\"size_y\":2,\"col\":5,\"row\":5}]", 
+  "optionsJSON": "{\"darkTheme\":false}", 
+  "version": 1, 
+  "kibanaSavedObjectMeta": {
+    "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+  }
+}
