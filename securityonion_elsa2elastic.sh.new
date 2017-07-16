@@ -1,0 +1,155 @@
+#!/bin/bash
+# Convert Security Onion ELSA to Elastic
+
+# Check for prerequisites
+if [ "$(id -u)" -ne 0 ]; then
+        echo "This script must be run using sudo!"
+        exit 1
+fi
+
+# Make a directory to store downloads
+DIR="/opt/elastic"
+mkdir -p $DIR
+cd $DIR
+PCAP_DIR="$DIR/pcap"
+
+# Define a banner to separate sections
+banner="========================================================================="
+
+header() {
+        echo
+        printf '%s\n' "$banner" "$*" "$banner"
+}
+
+REPO="elastic-test"
+if [ "$1" == "dev" ]; then
+        URL="https://github.com/dougburks/$REPO.git"
+        DOCKERHUB="dougburks"
+else
+        URL="https://github.com/Security-Onion-Solutions/$REPO.git"
+        DOCKERHUB="securityonionsolutions"
+fi
+EOF
+
+for FILE in /etc/nsm/securityonion.conf /etc/nsm/sensortab; do
+	if [ ! -f $FILE ]; then
+		echo "$FILE not found!  Exiting!"
+		exit 1
+	fi
+done
+
+if ! grep -i "ELSA=YES" /etc/nsm/securityonion.conf > /dev/null 2>&1 ; then
+	echo "ELSA is not enabled!  Exiting!"
+	exit 1
+fi
+
+if [ -f /root/.ssh/securityonion_ssh.conf ]; then
+	echo "This script can only be executed on boxes running in Evaluation Mode.  Exiting!"
+	exit 1
+fi
+
+SENSOR=`grep -v "^#" /etc/nsm/sensortab | tail -1 | awk '{print $1}'`
+if ! grep 'PCAP_OPTIONS="-c"' /etc/nsm/$SENSOR/sensor.conf > /dev/null 2>&1 ; then
+	echo "This script can only be executed on boxes running in Evaluation Mode.  Exiting!"
+	exit 1
+fi
+
+clear
+cat << EOF 
+This QUICK and DIRTY script is designed to allow you to quickly and easily experiment with the Elastic stack (Elasticsearch, Logstash, and Kibana) on Security Onion.
+
+This script assumes that you've already installed and configured the latest Security Onion 14.04.5.2 ISO image as follows:
+* (1) management interface with full Internet access
+* (1) sniffing interface (separate from management interface)
+* Setup run in Evaluation Mode to enable ELSA
+
+This script will do the following:
+* replay sample pcaps to create data in ELSA and then export that data so that Elastic import can be tested
+* install Docker and download Docker images for Elasticsearch, Logstash, and Kibana
+* import our custom visualizations and dashboards
+* disable ELSA
+* configure syslog-ng to send logs to Logstash on port 6050
+* configure Apache as a reverse proxy for Kibana and authenticate users against Sguil database
+* update CapMe to leverage that single sign on (SSO) and integrate with Elasticsearch
+* update Squert to use SSO
+* replay sample pcaps to provide data for testing
+
+Depending on the speed of your hardware and Internet connection, this process will take at least 10 minutes.
+
+TODO
+For the current TODO list, please see:
+https://github.com/Security-Onion-Solutions/security-onion/issues/1095
+
+HARDWARE REQUIREMENTS
+The Elastic stack requires more hardware than ELSA.  For best results on your test VM, you'll probably want at LEAST 2 CPU cores and 8GB of RAM.
+
+THANKS
+Special thanks to Justin Henderson for his Logstash configs and installation guide!
+https://github.com/SMAPPER/Logstash-Configs
+
+Special thanks to Phil Hagen for all his work on SOF-ELK!
+https://github.com/philhagen/sof-elk
+
+WARNINGS AND DISCLAIMERS
+* This technology PREVIEW is PRE-ALPHA, BLEEDING EDGE, and TOTALLY UNSUPPORTED!
+* If this breaks your system, you get to keep both pieces!
+* This script is a work in progress and is in constant flux.
+* This script is intended to build a quick prototype proof of concept so you can see what our ultimate Elastic configuration might look like.  This configuration will change drastically over time leading up to the final release.
+* Do NOT run this on a system that you care about!
+* Do NOT run this on a system that has data that you care about!
+* This script should only be run on a TEST box with TEST data!
+* This script is only designed for standalone boxes and does NOT support distributed deployments.
+* Use of this script may result in nausea, vomiting, or a burning sensation.
+ 
+Once you've read all of the WARNINGS AND DISCLAIMERS above, please type AGREE to proceed:
+EOF
+read INPUT
+if [ "$INPUT" != "AGREE" ] ; then exit 0; fi
+
+header "Installing git and libapache2-mod-authnz-external"
+apt-get update > /dev/null
+apt-get install -y git libapache2-mod-authnz-external > /dev/null
+echo "Done!"
+
+header "Downloading files"
+git clone $URL
+cp -av $REPO/usr/sbin/* /usr/sbin/
+chmod +x /usr/sbin/so-elastic-*
+echo "Done!"
+
+. /usr/sbin/so-elastic-download
+
+sed -i 's|#66.32.119.38|66.32.119.38|' /opt/bro/share/bro/intel/intel.dat
+sed -i 's|#www.honeynet.org|www.honeynet.org|' /opt/bro/share/bro/intel/intel.dat
+sed -i 's|#4285358dd748ef74cb8161108e11cb73|4285358dd748ef74cb8161108e11cb73|' /opt/bro/share/bro/intel/intel.dat
+
+. /usr/sbin/so-elastic-replay-pcaps
+
+SECONDS=60
+header "Waiting $SECONDS seconds to allow Bro to finish writing logs"
+for i in `seq 1 $SECONDS`; do
+	sleep 1s
+	echo -n "."
+done
+echo
+
+header "Processing final ELSA buffers"
+sh /opt/elsa/contrib/securityonion/contrib/securityonion-elsa-cron.sh
+sh /opt/elsa/contrib/securityonion/contrib/securityonion-elsa-cron.sh
+
+. /usr/sbin/so-elastic-configure
+
+header "Running experimental ELSA migration script"
+/usr/sbin/so-migrate-elsa-data-to-elastic -y
+
+SECONDS=60
+header "Waiting $SECONDS seconds to allow Logstash to initialize"
+for i in `seq 1 $SECONDS`; do
+	sleep 1s
+	echo -n "."
+done
+echo
+
+. /usr/sbin/so-elastic-replay-pcaps
+
+. /usr/sbin/so-elastic-final-text

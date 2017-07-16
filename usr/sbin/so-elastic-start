@@ -1,0 +1,116 @@
+#!/bin/bash
+
+if [ "$(id -u)" -ne 0 ]; then
+        echo "This script must be run using sudo!"
+        exit 1
+fi
+
+source /etc/nsm/securityonion.conf
+
+/usr/sbin/so-elastic-remove
+echo
+echo "Starting new containers:"
+
+if [ "$ELASTICSEARCH_ENABLED" = "yes" ]; then
+	echo -n "so-elasticsearch: "
+	docker run --name=so-elasticsearch \
+		--detach \
+		--env "bootstrap_memory_lock=true" \
+		--env ES_JAVA_OPTS="-Xms$ELASTICSEARCH_HEAP -Xmx$ELASTICSEARCH_HEAP" \
+		--env "http.host=0.0.0.0" \
+		--env "transport.host=127.0.0.1" \
+		--publish 9200:9200 \
+		--ulimit memlock=-1:-1 \
+		--ulimit nofile=65536:65536 \
+		--ulimit nproc=2048 \
+		--volume /nsm/elasticsearch:/usr/share/elasticsearch/data \
+		--volume /etc/elasticsearch/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro \
+		--volume /etc/elasticsearch/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro \
+		--volume /var/log/elasticsearch:/var/log/elasticsearch \
+		$ELASTICSEARCH_OPTIONS \
+		$DOCKERHUB/so-elasticsearch
+fi
+
+if [ "$LOGSTASH_ENABLED" = "yes" ]; then
+	echo -n "so-logstash: "
+	if [ "$FREQ_SERVER_ENABLED" = "yes" ]; then
+		cp -f /etc/logstash/optional/*_postprocess_freq_analysis_*.conf /etc/logstash/conf.d/
+	fi
+	if [ "$FREQ_SERVER_ENABLED" = "no" ]; then
+		rm -f /etc/logstash/conf.d/*_postprocess_freq_analysis_*.conf
+	fi
+	if [ "$DOMAIN_STATS_ENABLED" = "yes" ]; then
+		cp -f /etc/logstash/optional/8007_postprocess_dns_top1m_tagging.conf /etc/logstash/conf.d/
+	fi
+	if [ "$DOMAIN_STATS_ENABLED" = "no" ]; then
+		rm -f /etc/logstash/conf.d/8007_postprocess_dns_top1m_tagging.conf
+	fi
+	docker run --name=so-logstash \
+		--detach \
+		--env LS_JAVA_OPTS="-Xms$LOGSTASH_HEAP -Xmx$LOGSTASH_HEAP" \
+		--link=so-elasticsearch:elasticsearch \
+		--publish 6050:6050 \
+		--publish 6051:6051 \
+		--publish 6052:6052 \
+		--publish 6053:6053 \
+		--volume /etc/logstash/log4j2.properties:/usr/share/logstash/config/log4j2.properties:ro \
+		--volume /etc/logstash/logstash.yml:/usr/share/logstash/config/logstash.yml:ro \
+		--volume /etc/logstash/logstash-template.json:/logstash-template.json:ro \
+		--volume /etc/logstash/conf.d:/usr/share/logstash/pipeline/:ro \
+		--volume /etc/nsm/rules:/etc/nsm/rules:ro \
+		--volume /lib/dictionaries:/lib/dictionaries:ro \
+		--volume /nsm/import:/nsm/import:ro \
+		--volume /nsm/logstash:/usr/share/logstash/data/ \
+		--volume /var/log/logstash:/var/log/logstash \
+		$LOGSTASH_OPTIONS \
+		$DOCKERHUB/so-logstash
+fi
+
+if [ "$KIBANA_ENABLED" = "yes" ]; then
+	echo -n "so-kibana: "
+	docker run --name=so-kibana \
+		--detach \
+		--env "KIBANA_DEFAULTAPPID=$KIBANA_DEFAULTAPPID" \
+		--link=so-elasticsearch:elasticsearch \
+		--publish 5601:5601 \
+		--volume /etc/kibana/:/usr/share/kibana/config/:ro \
+                --volume /var/log/kibana:/var/log/kibana \
+		$KIBANA_OPTIONS \
+		$DOCKERHUB/so-kibana
+fi
+if [ "$ELASTALERT_ENABLED" = "yes" ]; then
+        echo -n "so-elastalert: "
+        docker run --name=so-elastalert \
+                --detach \
+                --link=so-elasticsearch:elasticsearch \
+                --volume /etc/elastalert/rules:/etc/elastalert/rules/ \
+		--volume /var/log/elastalert:/var/log/elastalert/ \
+                $ELASTALERT_OPTIONS \
+                $DOCKERHUB/so-elastalert
+fi
+if [ "$CURATOR_ENABLED" = "yes" ]; then
+        echo -n "so-curator: "
+        docker run --name=so-curator \
+                --detach \
+                --link=so-elasticsearch:elasticsearch \
+                --volume /etc/curator/config/curator.yml:/etc/curator/config/curator.yml:ro \
+                --volume /etc/curator/action/:/etc/curator/action:ro \
+                --volume /var/log/curator/:/var/log/curator/ \
+                -it $DOCKERHUB/so-curator
+fi
+if [ "$FREQ_SERVER_ENABLED" = "yes" ]; then
+	echo -n "so-freqserver: "
+	docker run --name=so-freqserver \
+		--detach \
+		--publish 10004:10004 \
+		--volume /var/log/freq_server:/var/log/freq_server \
+		lightforge/freq_server
+fi
+if [ "$DOMAIN_STATS_ENABLED" = "yes" ]; then
+	echo -n "so-domainstats: "
+	docker run --name=so-domainstats \
+		--detach \
+		--publish 20000:20000 \
+		--volume /var/log/domain_stats:/var/log/domain_stats \
+		lightforge/domain_stats
+fi

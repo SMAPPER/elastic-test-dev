@@ -1,0 +1,71 @@
+#!/usr/bin/php5
+<?php
+
+function failAuth() {
+	sleep (3);
+	exit (1);
+}
+
+function cleanUp($string) {
+	if (get_magic_quotes_gpc()) {
+		$string = stripslashes($string);
+	}
+	$string = mysql_real_escape_string($string);
+	return $string;
+}
+
+// Read from stdin. First line is the username, second line is the password.
+// The trim default is to strip space characters, which would break auth if a
+// password ends in a space.
+// So we trim tab, LF, CR, NUL-byte, and vertical tab.
+$handle = fopen ("php://stdin","r");
+$username = trim(fgets($handle), "\t\n\r\0\x0B");
+$password = trim(fgets($handle), "\t\n\r\0\x0B");
+
+// Input validation - if username contains any non-alphanumeric characters, fail immediately
+if (!(ctype_alnum($username))) {
+	failAuth();
+}
+
+// Try to connect to database
+$dbHost = "127.0.0.1";
+$dbName = "securityonion_db";
+$dbUser = "readonly";
+$dbPass = "securityonion";
+$db = mysql_connect($dbHost,$dbUser,$dbPass);
+$link = mysql_select_db($dbName, $db);
+
+// If database is down, fail immediately
+if (! $link) {
+	failAuth();
+} else {
+        $user = cleanUp($username);
+        $query = "SELECT * FROM user_info WHERE username = '$user'";
+        $result = mysql_query($query);
+        $numRows = mysql_num_rows($result);
+	// If username is not in database, fail immediately
+        if ($numRows < 1) {
+		failAuth();
+	} else {
+		// If username in database, retrieve their password hash
+		while ($row = mysql_fetch_row($result)) {
+			$userHash = $row[3];
+		}
+		// The first 2 chars are the salt     
+		$theSalt = substr($userHash, 0,2);
+
+		// The remainder is the hash
+		$theHash = substr($userHash, 2);
+
+		// Now we hash the users input                 
+		$testHash = sha1($password . $theSalt);
+
+		// Does it match? If yes, allow the user to continue to Kibana.
+		if ($testHash === $theHash) {
+			exit (0);
+		} else {
+			failAuth();
+		}
+	} 
+}
+?>

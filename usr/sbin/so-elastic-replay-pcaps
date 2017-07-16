@@ -1,0 +1,22 @@
+#!/bin/bash
+
+. /usr/sbin/so-elastic-common
+
+if [ ! -f /etc/nsm/sensortab ]; then
+	echo "No /etc/nsm/sensortab.  Exiting!"
+	exit 1
+fi
+
+NUM_INTERFACES=`grep -v "^#" /etc/nsm/sensortab | wc -l`
+if [ $NUM_INTERFACES -eq 0 ]; then
+	echo "No enabled interfaces in /etc/nsm/sensortab.  Exiting!"
+	exit 1
+fi
+
+header "Replaying pcaps to create logs for testing"
+INTERFACE=`grep -v "^#" /etc/nsm/sensortab | head -1 | awk '{print $4}'`
+for i in /opt/samples/*.pcap /opt/samples/markofu/*.pcap /opt/samples/mta/*.pcap $PCAP_DIR/*.trace $PCAP_DIR/*.pcap; do
+	echo -n "." 
+	tcpreplay -i $INTERFACE -M10 $i >/dev/null 2>&1
+done
+echo

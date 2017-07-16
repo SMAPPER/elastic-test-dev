@@ -1,0 +1,561 @@
+#!/bin/bash
+#
+# /usr/sbin/sostat
+#
+# Written by:
+# Doug Burks
+# Fixes contributed by:
+# Stephane Chazelas
+# Shane Castle
+
+# Import settings file
+if [ -f /etc/nsm/securityonion.conf ]; then
+   source /etc/nsm/securityonion.conf
+else
+   echo "Missing /etc/nsm/securityonion.conf file!" && exit 1
+fi
+
+# make sure if statements using wildcards for filenames don't equal true when no files exist
+shopt -s nullglob
+
+# Define a banner to separate sections
+banner="========================================================================="
+
+# Check for root
+[ "$(id -u)" -ne 0 ] && echo "This script must be run using sudo!" && exit 1
+
+header() {
+  printf '%s\n' "$banner" "$*" "$banner"
+}
+
+remove_ansi_escapes() {
+  sed $'s/\e[^mk]*[mk]//g;s/[\e\r]//g'
+}
+
+# Options
+usage()
+{
+cat <<EOF
+
+Security Onion Statistics
+
+     Options:
+
+        -h              This message
+        -a              Show all installed Security Onion packages
+
+Usage: $0
+EOF
+}
+
+# Check flags
+ALL_PKGS=0
+while getopts ":ha" OPTION
+do
+     case $OPTION in
+         h)
+                usage
+                exit 0
+                ;;
+         a)
+                ALL_PKGS=1
+             ;;
+     esac
+done
+
+# Determine sensor interfaces for packet loss stats
+INTERFACES=`grep -v "#" /etc/nsm/sensortab | awk '{print $4}'`
+
+# Text formatting
+if [ -t 1 ];then
+	underline=`tput smul`
+	normal=`tput sgr0`
+else
+	:
+fi
+
+# Begin output
+header "Service Status"
+service nsm status 2>&1 | remove_ansi_escapes
+
+echo
+header "Interface Status"
+ifconfig
+
+echo
+header "Link Statistics"
+ip -s -s link
+
+echo
+header "Disk Usage"
+df -h
+
+echo
+header "Network Sockets"
+lsof -nP -i
+
+if [ -f /var/log/nsm/pulledpork.log ]; then
+	echo
+	header "IDS Rules Update"
+	date=$(date +'%a %b %_d')
+	tac /var/log/nsm/pulledpork.log |
+	  grep 'UTC' -m1 -B 1000 |
+	  tac |
+	  sed "/^$date/,\$!d;/./!d;/An error occurred: WARNING: /d" |
+	  remove_ansi_escapes
+fi
+
+echo
+PROCS=`nproc --all`
+header "CPU Usage"
+echo "Load average for the last 1, 5, and 15 minutes:"
+cat /proc/loadavg | awk '{print $1,$2,$3}'
+echo "Processing units: $PROCS"
+echo "If load average is higher than processing units,"
+echo "then tune until load average is lower than processing units."
+echo
+# Get the first six lines of top output (summary)
+top -b -n1 |head -6
+# Use "ps" to get a process listing and sort it by cpu usage
+ps -eo pcpu,pmem,args --sort -pcpu
+
+if [ -d /nsm/sensor_data ]; then
+	echo
+	FREQUENCY=`grep -A1 packets_received /var/ossec/etc/ossec.conf | tail -1 | cut -d\> -f2 | cut -d\< -f1`
+	header "Packets received during last monitoring interval ($FREQUENCY seconds)"
+	/usr/sbin/sostat-interface-delta
+	echo
+	header "Packet Loss Stats"
+	echo
+	echo "${underline}NIC${normal}:"
+	echo
+	for IFACE in $INTERFACES;do
+		echo "$IFACE:" && echo && echo `ifconfig $IFACE |awk '/dropped:/ {print $1,$2,$4}'` && echo ""
+	done
+	echo "-------------------------------------------------------------------------"
+	echo
+	if [ -f /proc/net/pf_ring/info ]; then
+		echo "${underline}pf_ring${normal}:"
+		for i in /proc/net/pf_ring/*-* ; do
+			echo
+			#echo $i
+			grep "Appl. Name" $i
+			grep "Tot Packets" $i
+			grep "Tot Pkt Lost" $i
+			echo
+		done
+	fi
+	echo "-------------------------------------------------------------------------"
+	echo
+	echo "${underline}IDS Engine ($ENGINE) packet drops${normal}:"
+	echo
+	if [ "$ENGINE" = "suricata" ]; then
+        for i in /nsm/sensor_data/*/stats.log; do
+                echo "$i"
+                if [ $( tail -n 50 $i | grep -c drop ) -ne 0 ]; then
+			echo
+			tail -n 50 "$i" | grep -e "Date: " -e "drop"
+			echo
+		else
+			echo
+			echo "No packet drops reported."
+			echo
+		fi
+        done
+        else
+		for i in /nsm/sensor_data/*/snort-*.stats; do
+			if grep -q '^[^#]' "$i"; then
+				echo -n "$i last reported pkt_drop_percent as "
+				grep -v '^#' "$i" |tail -n 1 |cut -d\, -f2
+			else
+				echo "ERROR: No stats found in $i"
+			fi
+		done
+	fi
+	echo "-------------------------------------------------------------------------"
+	echo
+        TMP=`mktemp`
+        su sguil -c '/opt/bro/bin/broctl netstats' > $TMP
+        if [ -s $TMP ]; then
+                echo "${underline}Bro${normal}:"
+                echo
+		echo -n "Average packet loss as percent across all Bro workers: "
+                cat $TMP | sed \
+                's/[a-z]*=//g' | awk '{ drop += $4 ; link += $5 } \
+                END { printf("%f\n", ((drop/NR) / (link/NR)) * 100) }'
+                echo
+                cat $TMP
+                echo
+                if [ -f /nsm/bro/logs/current/capture_loss.log ]; then
+			echo "Capture Loss:"
+			echo
+			echo "`/opt/bro/bin/bro-cut peer percent_lost < /nsm/bro/logs/current/capture_loss.log | sort -u`"
+			echo
+			echo "If you are seeing capture loss without dropped packets, this"
+			echo "may indicate that an upstream device is dropping packets (tap or SPAN port)."
+		else
+			echo "No capture loss reported."
+		fi
+		rm $TMP
+	fi
+	echo
+	echo "-------------------------------------------------------------------------"
+        if ls /var/log/nsm/*/netsniff-ng.log > /dev/null 2>&1; then
+            echo
+            echo "${underline}Netsniff-NG${normal}:"
+            for i in /var/log/nsm/*/netsniff-ng.log;
+            do
+                if grep -q -e "-[1-9]*)" "$i"; then
+                    echo
+                    RCVD=()
+                    DRPD=()
+                    IFS=".(+"
+                    while read -ra line;
+                    do
+                        for word in "${line[@]}";
+                        do
+                            if [[ $word =~ ')' ]]; then
+                                RCVD+=(`echo "$word" | cut -d '/' -f1`);
+                            fi
+                        done;
+                    done < "$i"
+
+                    IFS='+' rcvd_sum=$(echo "scale=1;${RCVD[*]}"|bc)
+                    TOT_RCVD=`echo $rcvd_sum`
+
+                    IFS="-"
+                    while read -ra line;
+                    do
+                        for word in "${line[@]}";
+                        do
+                            if [[ $word =~ ')' ]]; then
+                                DRPD+=(`echo "$word" | cut -d ')' -f1`);
+                            fi
+                        done;
+                    done < "$i"
+
+                    IFS='+' drpd_sum=$(echo "scale=1;${DRPD[*]}"|bc)
+                    TOT_DRPD=`echo $drpd_sum`
+		    TOT_PKTS=`echo 'scale=2; '$TOT_DRPD'+'$TOT_RCVD''|bc`
+                    DRPD_PCT=`echo 'scale=2; '$TOT_DRPD'*100/'$TOT_PKTS''|bc`
+                    echo
+                    echo Percentage of packets dropped:
+                    echo
+		    echo $i " -- " $DRPD_PCT
+		    echo
+                else
+                    echo
+                    echo "0 Loss"
+                fi
+            done
+        fi
+	echo
+	header "PF_RING"
+        cat /proc/net/pf_ring/info
+	echo
+	header "Log Archive"
+	for i in /nsm/sensor_data/*; do
+		DAYS=`ls $i/dailylogs/ | wc -l`
+		echo "$i/dailylogs/ - $DAYS days"
+		cd $i/dailylogs
+		du --max-depth=1 -h|sort -k2
+		cd ->/dev/null
+		echo
+	done
+	DAYS=`ls /nsm/bro/logs/ | grep -v current | grep -v stats | wc -l`
+	echo "/nsm/bro/logs/ - $DAYS days"; cd /nsm/bro/logs/; du --max-depth=1 -h |sort -k2; cd ->/dev/null
+fi
+if [ -d /var/lib/mysql/securityonion_db ]; then
+	echo
+	header "Sguil Uncategorized Events"
+	mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "SELECT COUNT(*) FROM event WHERE status=0"
+	echo
+	header "Sguil events summary for yesterday"
+	# List all sigs from yesterday that are not URLs captured by http_agent descending by count
+	mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "select count(*) as Totals, CONCAT(event.signature_gen, ':', event.signature_id) as 'GenID:SigID', event.signature as Signature from event where event.signature_gen != 10001 and event.signature_id != 420042 and event.timestamp<curdate() and event.timestamp>DATE_ADD(CURDATE(), INTERVAL -1 DAY) group by event.signature order by Totals desc;"
+	mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "select count(*) as Total from event where event.signature_gen != 10001 and event.signature_id != 420042 and event.timestamp<curdate() and event.timestamp>DATE_ADD(CURDATE(), INTERVAL -1 DAY);"
+	echo
+	header "Top 50 All time Sguil Events"
+	mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "select count(*) as Totals, CONCAT(event.signature_gen, ':', event.signature_id) as 'GenID:SigID', event.signature as Signature from event where event.signature_gen != 10001 and event.signature_id != 420042 group by event.signature order by Totals desc limit 50;"
+	mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "select count(*) as Total from event where event.signature_gen != 10001 and event.signature_id != 420042;"
+	# check for active http_agent
+	num_http_agents=$(mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "select * from sensor where agent_type='http' and active='Y';" | wc -l)
+	if [ $num_http_agents -gt 0 ]; then
+		echo
+		header "Top 50 URLs for yesterday"
+		mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "select count(*) as Totals, event.signature as Signature from event where event.signature_gen = 10001 and event.signature_id = 420042 and event.timestamp<curdate() and event.timestamp>DATE_ADD(CURDATE(), INTERVAL -1 DAY) group by event.signature order by Totals desc limit 50;"
+		mysql --defaults-file=/etc/mysql/debian.cnf -Dsecurityonion_db -e "select count(*) as Total from event where event.signature_gen = 10001 and event.signature_id = 420042 and event.timestamp<curdate() and event.timestamp>DATE_ADD(CURDATE(), INTERVAL -1 DAY);"
+	fi
+fi
+
+if [ -f /var/log/apt/history.log ]; then
+	echo
+	header "Last update"
+	tail /var/log/apt/history.log
+fi
+
+if [ $(/usr/lib/update-notifier/apt-check --human-readable | grep -c '0') -ne 2 ]; then
+        echo
+        header "Available updates"
+        /usr/lib/update-notifier/apt-check --human-readable
+        echo
+        echo "Run 'sudo soup' to install the latest updates."
+fi
+
+if [ "$ELSA" = "YES" ]; then
+        echo
+        header "ELSA"
+	echo "Syslog-ng"
+        echo "Checking for process:"
+	pgrep -af /usr/sbin/syslog-ng
+        echo "Checking for connection:"
+	nc -4 -vz localhost 514 2>&1
+	echo
+        echo "MySQL"
+        echo "Checking for process:"
+        pgrep -af /usr/sbin/mysqld
+        echo "Checking for connection:"
+        [ -d /var/lib/mysql/securityonion_db ] && nc -4 -vz localhost 3306 2>&1 || nc -4 -vz localhost 50000 2>&1
+        echo
+        echo "Sphinx"
+        echo "Checking for process:"
+        pgrep -af /usr/bin/searchd
+        echo "Checking for connection:"
+        nc -4 -vz localhost 9306 2>&1
+        echo
+        echo "ELSA Buffers in Queue:"
+        ls -alt /nsm/elsa/data/elsa/tmp/buffers/* | wc -l
+	echo "If this number is consistently higher than 20, please see:"
+	echo "https://github.com/Security-Onion-Solutions/security-onion/wiki/FAQ#why-does-sostat-show-a-high-number-of-elsa-buffers-in-queue"
+        echo
+        echo "ELSA Directory Sizes:"
+        du --max-depth=0 -h /nsm/elsa/data /var/lib/mysql/syslog /var/lib/mysql/syslog_data
+        echo
+	OFFSET="2"
+	if [ -f /etc/elsa_web.conf ] && grep default_start_time_offset /etc/elsa_web.conf >/dev/null 2>&1; then
+		OFFSET=`grep default_start_time_offset /etc/elsa_web.conf | awk '{print $2}' | cut -d, -f1`
+	fi
+	echo "ELSA Index Date Range"
+	echo "If you don't have at least $OFFSET full days of logs in the Index Date Range,"
+	echo "then you'll need to increase log_size_limit in /etc/elsa_node.conf."
+	mysql --defaults-file=/etc/mysql/debian.cnf -Dsyslog -e "SELECT MIN(start), MAX(end) FROM syslog.v_indexes"
+	echo
+        if [ -d /var/lib/mysql/securityonion_db ]; then
+                # Master server
+		if grep "http://127.0.0.1:50" /etc/elsa_web.conf >/dev/null 2>&1; then
+                	echo "ELSA Log Node SSH Tunnels:"
+			(echo "PORT NODE IP/STATUS"
+			grep "http://127.0.0.1:50" /etc/elsa_web.conf | awk '{print $2}' | cut -d\/ -f3 | sort | while read PORT; do
+				NAME=$(grep -B1 $PORT /etc/elsa_web.conf | head -1 | cut -d\" -f2)
+				PORT_ONLY=$(echo $PORT | cut -d\: -f2)
+				if lsof -nP -i |grep "$PORT (LISTEN)" >/dev/null 2>&1; then
+					lsof -nP -i |grep "$PORT (LISTEN)" | awk '{print $9,$2}' | while read PORT PID; do
+						IP=`lsof -nP -i |grep "^sshd" | awk '{print $2,$9}' |grep "^$PID" |grep ":22" |awk '{print $2}' |cut -d\> -f2 | cut -d\: -f1 | head -1`
+						echo "$PORT_ONLY $NAME $IP"
+					done
+				else 
+					echo "$PORT_ONLY $NAME DISCONNECTED";
+				fi
+			done) | column -t
+		fi
+        else
+                # ELSA Log Node
+                echo "autossh"
+                echo "Checking for process:"
+                pgrep -af autossh
+                echo
+                echo "Checking APIKEY:"
+                APIKEY=`grep '"apikey": "' /etc/elsa_web.conf | awk '{print $2}' | sed 's|"||g'`
+                source /root/.ssh/securityonion_ssh.conf
+                APIKEY_REMOTE=`ssh $SSH_USERNAME@$SERVERNAME -i /root/.ssh/securityonion grep -A2 $ELSA_PORT /etc/elsa_web.conf | grep apikey | awk '{print $2}' | sed 's|"||g'`
+                [ "$APIKEY" = "$APIKEY_REMOTE" ] && echo "APIKEY matches server." || echo "APIKEY not found on master server."
+                echo
+                echo "starman"
+                echo "Checking for processes:"
+                pgrep -af starman
+        fi
+	err_arr=($(ps -ax | grep -i cron.pl | grep -v grep | awk '{print $1}'))
+	if [[ ${#err_arr[@]} -gt 1 ]];then
+		echo "*** WARNING: Multiple cron.pl processes detected! ***"
+		echo
+		for i in "${err_arr[@]}"
+		do
+			PS_START=$(ps -p $i -o lstart=)
+			PS_DURATION=$(ps -p $i -o etime=)
+			echo "PID: " $i " --- " "Start time: " $PS_START " --- " "Duration:" $PS_DURATION
+		done
+		echo
+		echo "Potentially related errors in /nsm/elsa/data/elsa/web.log:"
+		echo
+		GREP_ERROR=$(grep -E 'failed|* ERROR' /nsm/elsa/data/elsa/log/web.log)
+		if [[ ! -z "$GREP_ERROR" ]]; then
+			echo "$GREP_ERROR"
+			echo
+		fi
+		GREP_QID=$(grep -E 'Duplicate entry' /nsm/elsa/data/elsa/log/web.log)
+		if [[ ! -z "$GREP_QID" ]]; then
+			echo $GREP_QID
+			echo
+			echo "There may be a duplicate qid issue with one of the entries in the saved_results table of the elsa_web database:"
+			echo
+			mysql --defaults-file=/etc/mysql/debian.cnf -Delsa_web -e 'select * from saved_results'
+			echo
+			echo "Try troubleshooting, using the steps provided here:"
+                        echo "https://github.com/Security-Onion-Solutions/security-onion/wiki/FAQ#why-does-sostat-show-high-loadcpu-usage-and-large-number-of-perl-processes"
+		fi
+	fi
+fi
+
+if [ "$ELASTICSEARCH_ENABLED" = "yes" ]; then
+	
+	TOT_NODES=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq ._nodes.total)
+	#SUCCESS_NODES=curl localhost:9200/_cluster/stats?pretty | jq ._nodes.successful` 
+	FAIL_NODES=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq ._nodes.failed)
+	CLUST_NAME=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq .cluster_name)
+	TOT_INDICES=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq .indices.count)
+	TOT_SHARDS=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq .indices.shards.total)
+	CLUST_STATUS=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq .status)
+	FREE_MEM=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq .nodes.os.mem.free_percent)
+	TOT_DOCS=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq .indices.docs.count)
+	TOT_SIZE=$(curl -s 'localhost:9200/_cluster/stats?pretty' | jq .indices.store.size_in_bytes)
+	ES_RUNNING=$(docker ps | grep so-elasticsearch)
+	LS_RUNNING=$(docker ps | grep so-logstash)
+	KIB_RUNNING=$(docker ps | grep so-kibana)
+	ELAST_RUNNING=$(docker ps | grep so-elastalert)
+	CURAT_RUNNING=$(docker ps | grep so-curator)
+	FREQ_RUNNING=$(docker ps | grep so-freqserver)
+	DOMAINSTATS_RUNNING=$(docker ps | grep so-domainstats)
+	
+	echo
+        header "Elasticsearch"
+	if [ "$ES_RUNNING" ]; then
+                echo
+                echo "Elasticsearch is running."        
+                echo
+                echo Cluster Name: $CLUST_NAME
+                echo Cluster Status: $CLUST_STATUS
+                echo Total Nodes: $TOT_NODES
+                echo Failed Nodes: $FAIL_NODES
+                echo Total Indices: $TOT_INDICES
+                echo Total Shards: $TOT_SHARDS
+                echo Total Documents: $TOT_DOCS
+                echo Total Size '(in bytes)': $(($TOT_SIZE/10**6))MB
+                echo Free Memory: $FREE_MEM%
+                echo
+		docker stats --no-stream so-elasticsearch
+        else
+                echo
+                CLUST_NAME=$(grep cluster.name /etc/elasticsearch/elasticsearch.yml | awk '{print $2}'|sed -e 's/^"//' -e 's/"$//')
+                echo && echo -e "Elasticsearch is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-elasticsearch'\n\n\nIf that does not work, try checking /var/log/elasticsearch/"$CLUST_NAME".log for clues."
+        fi
+
+	echo
+	header "Logstash"
+	if [ "$LOGSTASH_ENABLED" = "yes" ]; then
+        	if [ "$LS_RUNNING" ];then
+                	echo && echo "Logstash is running." && echo
+			docker stats --no-stream so-logstash
+		else
+			echo && echo -e "Logstash is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-logstash'\n\n\nIf that does not work, try checking /var/log/logstash/logstash.log for clues."
+        	fi
+	fi
+
+	echo
+        header "Kibana"
+	if [ "$KIBANA_ENABLED" = "yes" ]; then
+        	if [ "$KIB_RUNNING" ]; then
+			echo && echo "Kibana is running."
+		echo
+			docker stats --no-stream so-kibana
+		else
+			echo && echo -e "Kibana is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-kibana'\n\n\nIf that does not work, try checking /var/log/kibana/kibana.log for clues."
+        	fi
+	fi
+
+	echo
+	header "ElastAlert"
+        if [ "$ELASTALERT_ENABLED" = "yes" ]; then
+                if [ "$ELAST_RUNNING" ]; then
+			echo && echo "ElastAlert is running."
+			echo
+                        docker stats --no-stream so-elastalert
+                else
+			echo && echo -e "ElastAlert is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-elastalert'\n\n\nIf that does not work, try checking /var/log/elastalert/elastalert_stderr.log for clues."
+                fi
+        fi
+
+	echo
+	header "Curator"
+	if [ "$CURATOR_ENABLED" = "yes" ]; then
+                if [ "$CURAT_RUNNING" ]; then
+                        echo && echo "Curator is running."
+                        echo
+                        docker stats --no-stream so-curator
+                else
+                        echo && echo -e "Curator is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-curator'\n\n\nIf that does not work, try checking /var/log/curator/curator.log for clues."
+                fi
+        fi
+	fi
+	echo
+	header "Freq Server"
+	if [ "$FREQ_SERVER_ENABLED" = "yes" ]; then
+                if [ "$FREQ_RUNNING" ]; then
+                        echo && echo "Freq_server is running."
+                        echo
+                        docker stats --no-stream so-freqserver
+						echo "Testing freq_server now..."
+						FREQ_SERVER_RESPONSE=`curl http://127.0.0.1:10004/measure/google.com`
+						FREQ_RESULT=$(awk -vx=$FREQ_SERVER_RESPONSE 'BEGIN{ print x>=y?1:0}')
+						if [ $FREQ_RESULT -eq 1 ]; then
+							echo "Freq Server is working"
+						else
+							echo "Freq_server is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-freqserver'\n\n\nIf that does not work, try checking /var/log/freq_server/freq_server.log for clues."
+						fi
+                else
+                        echo && echo -e "Freq_server is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-freqserver'\n\n\nIf that does not work, try checking /var/log/freq_server/freq_server.log for clues."
+                fi
+        fi
+	fi
+	echo
+	header "Domain Stats"
+	if [ "$DOMAIN_STATS_ENABLED" = "yes" ]; then
+                if [ "$DOMAINSTATS_RUNNING" ]; then
+                        echo && echo "Domain_stats is running."
+                        echo
+                        docker stats --no-stream so-domainstats
+						echo "Testing domain_stats now..."
+						DOMAIN_STATS_RESPONSE=`curl http://127.0.0.1:20000/alexa/google.com`
+						DOMAIN_STATS_RESULT=$(awk -vx=$DOMAIN_STATS_RESPONSE 'BEGIN{ print x>=y?1:0}')
+						if [ $DOMAIN_STATS_RESULT -eq 1 ]; then
+							echo "Domain_stats is working"
+						else
+							echo "Domain_stats is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-domainstats'\n\n\nIf that does not work, try checking /var/log/domain_stats/domain_stats.log for clues."
+						fi
+                else
+                        echo && echo -e "Domain_stats is not running.\n\nTry starting it with:\n\n'sudo so-elastic-start'\n OR\n'sudo docker start so-domainstats'\n\n\nIf that does not work, try checking /var/log/domain_stats/domain_stats.log for clues."
+                fi
+        fi
+	fi
+if [ -f /etc/timezone ] && ! grep "Etc/UTC" /etc/timezone >/dev/null 2>&1; then
+	echo
+	header "Time Zone"
+	echo "WARNING! Timezone is NOT set to UTC!"
+	echo "Please see:"
+	echo "https://github.com/Security-Onion-Solutions/security-onion/wiki/TimeZones"
+fi
+
+FILE="/etc/os-release"
+if [ -f $FILE ]; then
+	source $FILE
+	echo
+	header "Version Information"
+	echo $PRETTY_NAME
+	if [[ $ALL_PKGS == 1 ]]; then
+		echo
+		header "All Installed Security Onion Packages"
+		dpkg -l | grep securityonion | awk '{print $2,$3}'
+	else
+		dpkg -l |grep sostat | awk '{print $2,$3}'
+	fi
+fi
+echo

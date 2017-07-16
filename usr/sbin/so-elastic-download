@@ -1,0 +1,31 @@
+#!/bin/bash
+
+. /usr/sbin/so-elastic-common
+
+. /usr/sbin/so-elastic-download-pcaps
+
+header "Installing libapache2-mod-authnz-external"
+apt-get install -y libapache2-mod-authnz-external > /dev/null
+
+header "Installing Docker"
+cp $REPO/etc/apt/preferences.d/securityonion-docker /etc/apt/preferences.d/
+apt-get -y install apt-transport-https ca-certificates curl > /dev/null
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+add-apt-repository        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+apt-get update > /dev/null
+apt-get -y install docker-ce > /dev/null
+echo "Done!"
+
+header "Downloading Docker containers"
+echo "export DOCKER_CONTENT_TRUST=1" >> /etc/profile.d/securityonion-docker.sh
+export DOCKER_CONTENT_TRUST=1
+docker pull $DOCKERHUB/so-elasticsearch
+docker pull $DOCKERHUB/so-kibana
+docker pull $DOCKERHUB/so-logstash
+docker pull $DOCKERHUB/so-elastalert
+docker pull $DOCKERHUB/so-curator
+docker pull lightforge/freq_server
+docker pull lightforge/domain_stats
+echo "Done!"

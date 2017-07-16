@@ -1,0 +1,17 @@
+#!/bin/bash
+
+. /usr/sbin/so-elastic-common
+
+if [ -d $PCAP_DIR ]; then
+	echo "$PCAP_DIR already exists.  Skipping download!"
+else
+	mkdir -p $PCAP_DIR
+	header "Downloading additional pcaps"
+	cd $PCAP_DIR
+	for i in ssh/ssh.trace dnp3/dnp3.trace modbus/modbus.trace radius/radius.trace rfb/vnc-mac-to-linux.pcap rfb/vncmac.pcap sip/wireshark.trace tunnels/gre-within-gre.pcap tunnels/Teredo.pcap rdp/rdp-proprietary-encryption.pcap snmp/snmpv1_get.pcap mysql/mysql.trace smb/dssetup_DsRoleGetPrimaryDomainInformation_standalone_workstation.cap smb/raw_ntlm_in_smb.pcap smb/smb1.pcap smb/smb2.pcap; do
+		echo -n "." 
+		wget -q https://github.com/bro/bro/raw/master/testing/btest/Traces/$i
+	done
+	echo
+	cd - > /dev/null
+fi

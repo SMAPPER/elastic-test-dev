@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# Check for prerequisites
+if [ "$(id -u)" -ne 0 ]; then
+	echo "This script must be run using sudo!"
+	exit 1
+fi
+
+if [ "$#" -ne 1 ]; then
+# Obligatory warning and disclaimers
+cat << EOF 
+This QUICK and DIRTY script should dump logs from ELSA into log files that can easily be read using syslog-ng and sent to Elasticsearch.
+
+TODO
+* error checking
+* testing
+* testing
+* more testing
+* have it try to reclaim disk space as it goes
+
+HARDWARE REQUIREMENTS
+Make sure you have plenty of free disk space as this is essentially creating 2 additional copies of each log (1 in the filesystem and 1 in Elasticsearch).
+
+WARNINGS AND DISCLAIMERS
+* This technology PREVIEW is PRE-ALPHA, BLEEDING EDGE, and TOTALLY UNSUPPORTED!
+* If this breaks your system, you get to keep both pieces!
+* This script is a work in progress and is in constant flux.
+* Do NOT run this on a system that you care about!
+* Do NOT run this on a system that has data that you care about!
+* This script should only be run on a TEST box with TEST data!
+* This script is only designed for standalone boxes and does NOT support distributed deployments.
+* Use of this script may result in nausea, vomiting, or a burning sensation.
+ 
+Once you've read all of the WARNINGS AND DISCLAIMERS above, please type AGREE to proceed:
+EOF
+read INPUT
+if [ "$INPUT" != "AGREE" ] ; then exit 0; fi
+fi
+
+MYSQL="mysql --defaults-file=/etc/mysql/debian.cnf -sN"
+DIR="/nsm/import/bro"
+mkdir -p $DIR
+cd /nsm/import
+
+for table_name in `$MYSQL -Dsyslog_data -e 'show tables where Tables_in_syslog_data like "syslogs_index_%";'`; do
+	echo "Processing table $table_name"
+	for class_id in `$MYSQL -Dsyslog_data -e "select class_id from $table_name group by class_id;"`; do
+		#class_name=`$MYSQL -Dsyslog -e "select class from classes where id = $class_id;" | sed 's|BRO_||g' | tr '[:upper:]' '[:lower:]'`
+		class_name=`$MYSQL -Dsyslog -e "select class from classes where id = $class_id;" | tr '[:upper:]' '[:lower:]'`
+		echo "Processing class $class_name"
+		$MYSQL -Dsyslog_data -e "select msg from syslogs_index_1 where class_id = $class_id;" | sed 's/|/\t/g' >> $class_name.log
+	done
+done
+
+for bro_log in bro_*; do
+	log=$(echo $bro_log | cut -d_ -f2)
+	echo "Moving $bro_log to bro/$log"
+	mv $bro_log bro/$log
+done
